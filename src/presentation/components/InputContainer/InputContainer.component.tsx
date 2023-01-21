@@ -1,4 +1,4 @@
-import info from '../../assets/images/info.svg';
+import info from '../../../shared/assets/images/info.svg';
 
 import { ErrorMessage, Label, Wrapper } from './InputContainer.styles';
 import { IInputContainerProps } from './InputContainer.types';
