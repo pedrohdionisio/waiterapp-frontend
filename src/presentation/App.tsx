@@ -1,9 +1,9 @@
 import { ThemeProvider } from 'styled-components';
 
-import { Login } from './presentation/pages/Login/Login.page';
+import { Login } from './pages/Login/Login.page';
 
-import { GlobalStyles } from './shared/styles/GlobalStyles';
-import { defaultTheme } from './shared/styles/themes/default';
+import { GlobalStyles } from '../shared/styles/GlobalStyles';
+import { defaultTheme } from '../shared/styles/themes/default';
 
 function App() {
   return (
