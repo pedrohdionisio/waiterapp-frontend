@@ -31,7 +31,10 @@ export function PasswordInput({
           {...rest}
         />
         <InputButton onClick={handlePasswordVisibilityChange}>
-          <img src={isPasswordVisible ? eye : eyeHidden} alt="Eye" />
+          <img
+            src={isPasswordVisible ? eyeHidden : eye}
+            alt={isPasswordVisible ? 'Esconder senha' : 'Mostrar senha'}
+          />
         </InputButton>
       </Wrapper>
     );
@@ -56,7 +59,10 @@ export function PasswordInput({
       />
 
       <InputButton onClick={handlePasswordVisibilityChange}>
-        <img src={isPasswordVisible ? eye : eyeHidden} alt="Eye" />
+        <img
+          src={isPasswordVisible ? eyeHidden : eye}
+          alt={isPasswordVisible ? 'Esconder senha' : 'Mostrar senha'}
+        />
       </InputButton>
     </Wrapper>
   );

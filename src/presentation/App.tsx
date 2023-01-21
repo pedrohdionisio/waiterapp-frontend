@@ -1,15 +1,17 @@
 import { ThemeProvider } from 'styled-components';
-
-import { Login } from './pages/Login/Login.page';
+import { BrowserRouter } from 'react-router-dom';
 
 import { GlobalStyles } from '../shared/styles/GlobalStyles';
 import { defaultTheme } from '../shared/styles/themes/default';
+import { AppRoutes } from '../shared/routes/index.routes';
 
 function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyles />
-      <Login />
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
