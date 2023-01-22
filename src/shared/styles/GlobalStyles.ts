@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, CSSProperties } from 'styled-components';
 
 import GeneralSansRegularWoff2 from '../assets/fonts/GeneralSans-Regular.woff2';
 import GeneralSansRegularWoff from '../assets/fonts/GeneralSans-Regular.woff';
@@ -54,3 +54,16 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.colors.gray[900]};
   }
 `;
+
+export const OverlayModalStyles: CSSProperties = {
+  position: 'fixed',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  backgroundColor: 'rgba(0, 0, 0, 0.8)',
+  backdropFilter: 'blur(3px)',
+};

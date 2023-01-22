@@ -15,3 +15,15 @@ export const Wrapper = styled.button`
     opacity: 0.8;
   }
 `;
+
+export const ModalBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  font-weight: 500;
+  
+  p {
+    text-align: center;
+  }
+`;
