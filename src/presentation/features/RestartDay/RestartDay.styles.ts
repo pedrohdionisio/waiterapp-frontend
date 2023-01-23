@@ -5,6 +5,7 @@ export const Wrapper = styled.button`
   gap: 8px;
   border: none;
   transition: opacity 0.3s ease-in;
+  background-color: transparent;
 
   span {
     color: ${({ theme }) => theme.colors.primary[500]};
