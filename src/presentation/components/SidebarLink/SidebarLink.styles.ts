@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
     font-weight: 500;
     color: ${({ theme }) => theme.colors.gray[500]};
     text-decoration: none;
+    text-align: center;
   }
 
   .active {
