@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { IAuthenticateUserPayload } from '../../../data/services/auth/AuthService.type';
+import { authenticateUser } from '../../../data/store/slices/Auth/AuthThunks';
 
-import { authenticateUser } from '../../../data/store/slices/Auth/Auth.slice';
 import { AppDispatchType, RootStateType } from '../../../data/store/store';
 
 import { Button } from '../../components/Button/Button.component';

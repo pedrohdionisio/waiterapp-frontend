@@ -1,8 +1,8 @@
 import { useCallback, useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { getAuthenticatedUser } from '../../../data/store/slices/Auth/AuthThunks';
 
-import { getAuthenticatedUser } from '../../../data/store/slices/Auth/Auth.slice';
 import { AppDispatchType, RootStateType } from '../../../data/store/store';
 
 export function useLoadUserFeature() {
