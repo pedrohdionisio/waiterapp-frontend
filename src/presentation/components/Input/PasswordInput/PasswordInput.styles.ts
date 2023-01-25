@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
-import { IPasswordInputProps } from './PasswordInput.types';
+import { PasswordInputStylesType } from './PasswordInput.types';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<PasswordInputStylesType>`
   display: flex;
   align-items: center;
   border: 1px solid ${({ theme }) => theme.colors.gray[100]};
@@ -12,9 +12,13 @@ export const Wrapper = styled.div`
   &:focus-within {
     border-color: ${({ theme }) => theme.colors.gray[500]};
   }
+
+  ${({ hasError }) => hasError && css`
+    border-color: ${({ theme }) => theme.colors.primary[500]};
+  `}
 `;
 
-export const StyledInput = styled.input<IPasswordInputProps>`
+export const StyledInput = styled.input`
   background: transparent;
   caret-color: ${({ theme }) => theme.colors.primary[500]};
   color: ${({ theme }) => theme.colors.gray[900]};
@@ -27,10 +31,6 @@ export const StyledInput = styled.input<IPasswordInputProps>`
   &::placeholder {
     color: ${({ theme }) => theme.colors.gray[300]};
   }
-
-  ${({ hasError }) => hasError && css`
-    border-color: ${({ theme }) => theme.colors.primary[500]};
-  `}
 `;
 
 export const InputButton = styled.button`

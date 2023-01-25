@@ -8,25 +8,27 @@ import { useSignIn } from './useSignIn';
 
 export function SignIn() {
   const {
-    auth, control, handleSignInUser, handleSubmit,
+    auth, control, errors, handleSignInUser, handleSubmit,
   } = useSignIn();
 
   return (
     <Form onSubmit={handleSubmit(handleSignInUser)}>
-      <InputContainer label="E-mail">
+      <InputContainer label="E-mail" error={errors.email?.message}>
         <TextInput
           control={control}
           name="email"
           type="email"
           placeholder="Informe seu e-mail"
+          hasError={!!errors.email}
         />
       </InputContainer>
 
-      <InputContainer label="Senha">
+      <InputContainer label="Senha" error={errors.password?.message}>
         <PasswordInput
           control={control}
           name="password"
           placeholder="Informe sua senha"
+          hasError={!!errors.password}
         />
       </InputContainer>
 

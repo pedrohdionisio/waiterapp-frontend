@@ -23,10 +23,9 @@ export function PasswordInput({
 
   if (!control) {
     return (
-      <Wrapper>
+      <Wrapper hasError={hasError}>
         <StyledInput
           name={name}
-          hasError={hasError}
           type={isPasswordVisible ? 'text' : 'password'}
           {...rest}
         />
@@ -41,7 +40,7 @@ export function PasswordInput({
   }
 
   return (
-    <Wrapper>
+    <Wrapper hasError={hasError}>
       <Controller
         control={control}
         name={name}
@@ -51,7 +50,6 @@ export function PasswordInput({
             type={isPasswordVisible ? 'text' : 'password'}
             onChange={onChange}
             value={value}
-            hasError={hasError}
             {...rest}
           />
         )}
