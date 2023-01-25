@@ -1,27 +1,39 @@
-import { AxiosRequestConfig, AxiosResponse } from 'axios';
-import api from '../api';
+import axios, { AxiosResponse } from 'axios';
 
-export default class HttpClient {
-  async get(path: string, options?: AxiosRequestConfig): Promise<AxiosResponse> {
-    return api.get(path, options);
-  }
+import delay from '../../shared/utils/delay';
 
-  async post(path: string, payload: unknown): Promise<AxiosResponse> {
-    return api.post(path, payload);
-  }
-
-  // put(path, options) {
-  //   return this.makeRequest(path, {
-  //     method: 'PUT',
-  //     body: options?.body,
-  //     headers: options?.headers,
-  //   });
-  // }
-
-  // delete(path, options) {
-  //   return this.makeRequest(path, {
-  //     method: 'DELETE',
-  //     headers: options?.headers,
-  //   });
-  // }
+interface RequestConfig {
+  headers?: Record<string, string>;
 }
+
+class HttpClient {
+  private makeRequest;
+
+  constructor(baseURL: string) {
+    this.makeRequest = axios.create({ baseURL });
+    this.makeRequest.interceptors.response.use(async (data) => {
+      await delay(500);
+      return data;
+    });
+  }
+
+  get<TResponse = unknown>(path: string, config?: RequestConfig) {
+    return this.makeRequest.get<TResponse>(path, config);
+  }
+
+  post<TResponse = unknown, TData = unknown>(path: string, data?: TData, config?: RequestConfig) {
+    return this.makeRequest
+      .post<TResponse, AxiosResponse<TResponse, TData>, TData>(path, data, config);
+  }
+
+  put<TResponse = unknown, TData = unknown>(path: string, data?: TData, config?: RequestConfig) {
+    return this.makeRequest
+      .put<TResponse, AxiosResponse<TResponse, TData>, TData>(path, data, config);
+  }
+
+  delete<TResponse = unknown>(path: string, config?: RequestConfig) {
+    return this.makeRequest.delete<TResponse>(path, config);
+  }
+}
+
+export default HttpClient;

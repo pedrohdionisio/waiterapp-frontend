@@ -6,4 +6,5 @@ export interface IAuthSlice {
     role: string;
   }
   isLoading: boolean;
+  isAuthenticated: boolean;
 }

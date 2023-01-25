@@ -9,3 +9,8 @@ export interface IAuthenticateUserResponse {
   token: string;
   user: UserType;
 }
+
+export interface IGetAuthenticatedUserResponse {
+  user: UserType;
+  isAuthenticated: boolean;
+}

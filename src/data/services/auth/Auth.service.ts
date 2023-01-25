@@ -1,17 +1,31 @@
-import { AxiosResponse } from 'axios';
 import HttpClient from '../../clients/HttpClient';
-import { IAuthenticateUserPayload, IAuthenticateUserResponse } from './AuthService.type';
+
+import {
+  IAuthenticateUserPayload,
+  IAuthenticateUserResponse,
+  IGetAuthenticatedUserResponse,
+} from './AuthService.type';
 
 class AuthService {
-  private httpClient: HttpClient;
+  private httpClient = new HttpClient('http://localhost:3001/');
 
-  constructor() {
-    this.httpClient = new HttpClient();
+  async authenticateUser(payload: IAuthenticateUserPayload) {
+    const user = await this.httpClient.post<
+      IAuthenticateUserResponse,
+      IAuthenticateUserPayload
+    >('/login', payload);
+
+    return user;
   }
 
-  async authenticateUser(payload: IAuthenticateUserPayload):
-  Promise<AxiosResponse<IAuthenticateUserResponse>> {
-    const user = await this.httpClient.post('/login', payload);
+  async getAuthenticatedUser() {
+    const headers = {
+      Authorization: `Bearer ${JSON.parse(window.localStorage.getItem('token')!)}`,
+    };
+
+    const user = await this.httpClient.get<
+      IGetAuthenticatedUserResponse
+    >('/users/authenticated', { headers });
 
     return user;
   }
