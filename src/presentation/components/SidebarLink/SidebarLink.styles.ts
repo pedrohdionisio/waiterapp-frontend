@@ -1,14 +1,23 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  a {
+  button, a {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-weight: 500;
     color: ${({ theme }) => theme.colors.gray[500]};
-    text-decoration: none;
     text-align: center;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
   }
 
   .active {

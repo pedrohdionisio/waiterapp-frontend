@@ -15,7 +15,15 @@ const initialState: IAuthSlice = {
 const slice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    logout: (state) => {
+      state.isAuthenticated = false;
+      state.token = null;
+      state.user = {} as UserType;
+
+      window.localStorage.removeItem('token');
+    },
+  },
   extraReducers(builder) {
     builder.addCase(authenticateUser.fulfilled, (state, action) => {
       state.token = action.payload.token;
@@ -43,5 +51,7 @@ const slice = createSlice({
     });
   },
 });
+
+export const { logout } = slice.actions;
 
 export default slice.reducer;

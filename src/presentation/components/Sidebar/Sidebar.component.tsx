@@ -1,3 +1,4 @@
+import { Logout } from '../../features/Logout/Logout.feature';
 import { SidebarLink } from '../SidebarLink/SidebarLink.component';
 import { LinkContainer, ShortLogo, Wrapper } from './Sidebar.styles';
 
@@ -18,7 +19,7 @@ export function Sidebar() {
 
       <LinkContainer>
         <SidebarLink icon="profile" to="perfil" text="Meu Perfil" />
-        <SidebarLink icon="logout-box" to="sair" text="Sair" />
+        <Logout />
       </LinkContainer>
     </Wrapper>
   );

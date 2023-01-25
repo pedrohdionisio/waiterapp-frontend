@@ -1,9 +1,9 @@
 import { SplashScreen } from '../../pages/SplashScreen/SplashScreen.page';
 
-import { useLoadUserFeature } from './useLoadUserFeature';
+import { useLoadUser } from './useLoadUser';
 
 export function LoadUser() {
-  const { isLoading } = useLoadUserFeature();
+  const { isLoading } = useLoadUser();
 
   if (isLoading) {
     return <SplashScreen />;

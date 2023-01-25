@@ -5,7 +5,7 @@ import { getAuthenticatedUser } from '../../../data/store/slices/Auth/AuthThunks
 
 import { AppDispatchType, RootStateType } from '../../../data/store/store';
 
-export function useLoadUserFeature() {
+export function useLoadUser() {
   const dispatch = useDispatch<AppDispatchType>();
   const { isLoading } = useSelector(
     (state: RootStateType) => state.auth,
