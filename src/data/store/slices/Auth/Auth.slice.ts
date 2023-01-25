@@ -1,29 +1,9 @@
-/* eslint-disable no-param-reassign */
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 import { UserType } from '../../../../shared/types/User';
+
 import { IAuthSlice } from './AuthSlice.types';
-
-import AuthService from '../../../services/auth/Auth.service';
-import { IAuthenticateUserPayload } from '../../../services/auth/AuthService.type';
-
-export const authenticateUser = createAsyncThunk(
-  'auth/authenticateUser',
-  async (payload: IAuthenticateUserPayload) => {
-    const response = await AuthService.authenticateUser(payload);
-
-    return response.data;
-  },
-);
-
-export const getAuthenticatedUser = createAsyncThunk(
-  'auth/getAuthenticatedUser',
-  async () => {
-    const response = await AuthService.getAuthenticatedUser();
-
-    return response.data;
-  },
-);
+import { authenticateUser, getAuthenticatedUser } from './AuthThunks';
 
 const initialState: IAuthSlice = {
   token: null,

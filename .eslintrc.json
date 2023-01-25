@@ -38,6 +38,7 @@
         "react/jsx-props-no-spreading": "off",
         "react/jsx-no-bind": "off",
         "class-methods-use-this": "off",
+        "no-param-reassign": "off",
         "semi": [
             "error",
             "always"
