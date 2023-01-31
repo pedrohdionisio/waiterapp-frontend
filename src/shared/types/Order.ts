@@ -1,11 +1,11 @@
 import { Product } from './Product';
 
-export type OrderStatus = 'WAITING' | 'IN_PRODUCTION' | 'DONE';
+export type OrderStatusType = 'WAITING' | 'IN_PRODUCTION' | 'DONE';
 
-export type Order = {
+export type OrderType = {
   _id: string;
   table: string;
-  status: OrderStatus;
+  status: OrderStatusType;
   products: {
     product: Product;
     quantity: number;

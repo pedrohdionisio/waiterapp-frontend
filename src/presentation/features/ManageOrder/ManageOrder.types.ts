@@ -1,5 +1,7 @@
 import { OrderType } from '../../../shared/types/Order';
 
-export interface IOrderCardProps {
+export interface IManageOrder {
   order: OrderType;
+  visible: boolean;
+  onClose: () => void;
 }

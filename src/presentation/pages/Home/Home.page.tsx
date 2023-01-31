@@ -10,6 +10,7 @@ export function Home() {
           <h4>Fila de Espera</h4>
           <span>1</span>
         </BoardHeader>
+
         <OrderCard order={orders[0]} />
       </Board>
 
@@ -18,13 +19,16 @@ export function Home() {
           <h4>Fila de Espera</h4>
           <span>1</span>
         </BoardHeader>
+
         <OrderCard order={orders[0]} />
       </Board>
+
       <Board>
         <BoardHeader>
           <h4>Fila de Espera</h4>
           <span>1</span>
         </BoardHeader>
+
         <OrderCard order={orders[0]} />
       </Board>
     </Wrapper>

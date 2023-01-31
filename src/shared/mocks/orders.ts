@@ -1,6 +1,6 @@
-import { Order } from '../types/Order';
+import { OrderType } from '../types/Order';
 
-const orders: Order[] = [
+const orders: OrderType[] = [
   {
     _id: '6372e48cbcd195b0d3d0f7f3',
     table: '123',
@@ -9,7 +9,7 @@ const orders: Order[] = [
       {
         product: {
           name: 'Pizza quatro queijos',
-          imagePath: '1668472896991-quatro-queijos.png',
+          imagePath: '1672425892319-egg.png',
           price: 40,
         },
         quantity: 3,
@@ -18,7 +18,7 @@ const orders: Order[] = [
       {
         product: {
           name: 'Coca cola',
-          imagePath: '1668473462705-coca-cola.png',
+          imagePath: '1672425892319-egg.png',
           price: 7,
         },
         quantity: 2,

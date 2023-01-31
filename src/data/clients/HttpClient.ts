@@ -11,6 +11,7 @@ class HttpClient {
 
   constructor(baseURL: string) {
     this.makeRequest = axios.create({ baseURL });
+    this.makeRequest.defaults.headers.common.Authorization = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzQ4NjAwNzQsImV4cCI6MTY3NDk0NjQ3NCwic3ViIjoiNjNhYjg5YTE0MjEzODNjM2IyODY3NTdiIn0.7X1OpSCa4qY_i5L6T32g9_nZ4F8WT7cGBQVVZJHFWBA';
     this.makeRequest.interceptors.response.use(async (data) => {
       await delay(500);
       return data;
