@@ -10,12 +10,12 @@ class AuthService {
   private httpClient = new HttpClient('http://localhost:3001/');
 
   async authenticateUser(payload: IAuthenticateUserPayload) {
-    const user = await this.httpClient.post<
+    const { data } = await this.httpClient.post<
       IAuthenticateUserResponse,
       IAuthenticateUserPayload
     >('/login', payload);
 
-    return user;
+    return data;
   }
 
   async getAuthenticatedUser() {
@@ -23,11 +23,11 @@ class AuthService {
       Authorization: `Bearer ${JSON.parse(window.localStorage.getItem('token')!)}`,
     };
 
-    const user = await this.httpClient.get<
+    const { data } = await this.httpClient.get<
       IGetAuthenticatedUserResponse
     >('/users/authenticated', { headers });
 
-    return user;
+    return data;
   }
 }
 export default new AuthService();

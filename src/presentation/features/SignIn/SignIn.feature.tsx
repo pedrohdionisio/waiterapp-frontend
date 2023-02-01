@@ -8,7 +8,7 @@ import { useSignIn } from './useSignIn';
 
 export function SignIn() {
   const {
-    auth, control, errors, handleSignInUser, handleSubmit,
+    isLoading, control, errors, handleSignInUser, handleSubmit,
   } = useSignIn();
 
   return (
@@ -35,8 +35,8 @@ export function SignIn() {
       <Button
         type="submit"
         text="Fazer Login"
-        isLoading={auth.isLoading}
-        disabled={auth.isLoading}
+        isLoading={isLoading}
+        disabled={isLoading}
       />
     </Form>
   );

@@ -1,18 +1,29 @@
-import { useCallback, useEffect } from 'react';
-
-import { useDispatch, useSelector } from 'react-redux';
-import { getAuthenticatedUser } from '../../../data/store/slices/Auth/AuthThunks';
-
-import { AppDispatchType, RootStateType } from '../../../data/store/store';
+import { useCallback, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import AuthService from '../../../data/services/auth/Auth.service';
+import { setUser } from '../../../data/store/slices/Auth/Auth.slice';
+import { AppDispatchType } from '../../../data/store/store';
 
 export function useLoadUser() {
+  const [isLoading, setIsLoading] = useState(true);
+
   const dispatch = useDispatch<AppDispatchType>();
-  const { isLoading } = useSelector(
-    (state: RootStateType) => state.auth,
-  );
+  const navigate = useNavigate();
 
   const loadUser = useCallback(async () => {
-    await dispatch(getAuthenticatedUser());
+    try {
+      const { user } = await AuthService.getAuthenticatedUser();
+
+      return dispatch(setUser({ user }));
+    } catch {
+      navigate('/');
+
+      return toast.error('Ocorreu um erro ao carregar os dados do usuário');
+    } finally {
+      setIsLoading(false);
+    }
   }, []);
 
   useEffect(() => {
