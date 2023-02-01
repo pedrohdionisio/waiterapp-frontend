@@ -1,10 +1,11 @@
 import { OrderType } from '../types/Order';
 
-const orders: OrderType[] = [
+const ordersMock: OrderType[] = [
   {
     _id: '6372e48cbcd195b0d3d0f7f3',
     table: '123',
     status: 'WAITING',
+    created_at: new Date(),
     products: [
       {
         product: {
@@ -28,4 +29,4 @@ const orders: OrderType[] = [
   },
 ];
 
-export default orders;
+export default ordersMock;

@@ -17,6 +17,10 @@ export function ManageOrder({ order, visible, onClose }: IManageOrder) {
     DONE: 'Finalizado',
   };
 
+  if (!order) {
+    return null;
+  }
+
   return (
     <Modal
       title={`Mesa ${order.table}`}

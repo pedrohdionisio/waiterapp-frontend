@@ -6,9 +6,10 @@ export type OrderType = {
   _id: string;
   table: string;
   status: OrderStatusType;
+  created_at: Date;
   products: {
+    _id: string;
     product: Product;
     quantity: number;
-    _id: string;
   }[];
 };
