@@ -1,24 +1,18 @@
-import { useState } from 'react';
-import { OrderType } from '../../../shared/types/Order';
+/* eslint-disable no-underscore-dangle */
 import { ManageOrder } from '../../features/ManageOrder/ManageOrder.feature';
 import {
   Board, BoardCard, BoardHeader, Wrapper,
 } from './OrdersBoard.styles';
 import { IOrdersBoardProps } from './OrdersBoard.types';
+import { useOrdersBoard } from './useOrdersBoard';
 
 export function OrdersBoard({ orders, title }: IOrdersBoardProps) {
-  const [selectedOrder, setSelectedOrder] = useState<OrderType | null>(null);
-  const [isOrderModalVisible, setIsOrderModalVisible] = useState(false);
-
-  function handleOpenModal(order: OrderType) {
-    setSelectedOrder(order);
-    setIsOrderModalVisible(true);
-  }
-
-  function handleCloseModal() {
-    setSelectedOrder(null);
-    setIsOrderModalVisible(false);
-  }
+  const {
+    selectedOrder,
+    isOrderModalVisible,
+    handleCloseModal,
+    handleOpenModal,
+  } = useOrdersBoard();
 
   return (
     <Wrapper>
@@ -29,7 +23,7 @@ export function OrdersBoard({ orders, title }: IOrdersBoardProps) {
         </BoardHeader>
 
         {orders?.map((order) => (
-          <BoardCard onClick={() => handleOpenModal(order)}>
+          <BoardCard key={order._id} onClick={() => handleOpenModal(order)}>
             <strong>{`Mesa ${order.table}`}</strong>
             <span>
               {`${order.products.length} ${

@@ -1,3 +1,4 @@
+import Currency from '../../../shared/utils/currency';
 import { Modal } from '../../components/Modal/Modal.component';
 import {
   ModalBody,
@@ -9,17 +10,14 @@ import {
   TotalPrice,
 } from './ManageOrder.styles';
 import { IManageOrder } from './ManageOrder.types';
+import { useManageOrder } from './useManageOrder';
 
 export function ManageOrder({ order, visible, onClose }: IManageOrder) {
-  const orderStatus = {
-    WAITING: 'Na fila de espera',
-    IN_PRODUCTION: 'Em produção',
-    DONE: 'Finalizado',
-  };
-
   if (!order) {
     return null;
   }
+
+  const { totalPrice } = useManageOrder(order);
 
   return (
     <Modal
@@ -33,36 +31,42 @@ export function ManageOrder({ order, visible, onClose }: IManageOrder) {
       <ModalBody>
         <OrderStatus>
           <p>Status do Pedido</p>
-          <strong>{orderStatus[order.status]}</strong>
+          <strong>
+            {order.status === 'WAITING' && 'Em espera'}
+            {order.status === 'IN_PRODUCTION' && 'Em preparação'}
+            {order.status === 'DONE' && 'Pronto'}
+          </strong>
         </OrderStatus>
 
         <OrderProducts>
           <p>Itens</p>
 
           <ProductsList>
-            <Product>
-              <img
-                src={`http://localhost:3001/uploads/${order.products[0].product.imagePath}`}
-                alt={order.products[0].product.name}
-              />
+            {order.products.map(({ _id, product, quantity }) => (
+              <Product key={_id}>
+                <img
+                  src={`http://localhost:3001/uploads/${product.imagePath}`}
+                  alt={order.products[0].product.name}
+                />
 
-              <ProductInfo>
-                <span>
-                  {order.products[0].quantity}
-                  x
-                </span>
+                <ProductInfo>
+                  <span>
+                    {quantity}
+                    x
+                  </span>
 
-                <div>
-                  <h4>{order.products[0].product.name}</h4>
-                  <span>R$ 40,00</span>
-                </div>
-              </ProductInfo>
-            </Product>
+                  <div>
+                    <h4>{product.name}</h4>
+                    <span>{Currency.format(product.price)}</span>
+                  </div>
+                </ProductInfo>
+              </Product>
+            ))}
           </ProductsList>
 
           <TotalPrice>
             <span>Total</span>
-            <h4>R$ 1200,00</h4>
+            <h4>{Currency.format(totalPrice)}</h4>
           </TotalPrice>
         </OrderProducts>
       </ModalBody>
