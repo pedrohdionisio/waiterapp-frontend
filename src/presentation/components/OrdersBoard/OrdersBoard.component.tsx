@@ -25,10 +25,10 @@ export function OrdersBoard({ orders, title }: IOrdersBoardProps) {
       <Board>
         <BoardHeader>
           <h4>{title}</h4>
-          <span>{orders.length}</span>
+          <span>{orders?.length}</span>
         </BoardHeader>
 
-        {orders.map((order) => (
+        {orders?.map((order) => (
           <BoardCard onClick={() => handleOpenModal(order)}>
             <strong>{`Mesa ${order.table}`}</strong>
             <span>

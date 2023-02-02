@@ -5,7 +5,6 @@ import { UserType } from '../../../../shared/types/User';
 import { IAuthSlice } from './AuthSlice.types';
 
 const initialState: IAuthSlice = {
-  token: null,
   user: {} as UserType,
   isAuthenticated: !!JSON.parse(window.localStorage.getItem('token')!),
 };
@@ -16,12 +15,10 @@ const slice = createSlice({
   reducers: {
     setUser: (state, action) => {
       state.isAuthenticated = true;
-      state.token = action.payload.token;
       state.user = action.payload.user;
     },
     logout: (state) => {
       state.isAuthenticated = false;
-      state.token = null;
       state.user = {} as UserType;
 
       window.localStorage.removeItem('token');

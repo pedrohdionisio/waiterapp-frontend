@@ -1,6 +1,6 @@
 import { OrderType } from '../../../shared/types/Order';
 
 export interface IOrdersBoardProps {
-  orders: OrderType[];
+  orders: OrderType[] | undefined;
   title: string;
 }
