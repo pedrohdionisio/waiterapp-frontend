@@ -10,15 +10,13 @@ export function useLoadUser() {
   const dispatch = useDispatch<AppDispatchType>();
   const navigate = useNavigate();
 
-  const { data: user, isLoading } = useQuery(
+  const { isLoading } = useQuery(
     'user',
     () => AuthService.getAuthenticatedUser(),
     {
       refetchOnWindowFocus: false,
-      onSuccess: () => {
-        if (!isLoading) {
-          dispatch(setUser({ user }));
-        }
+      onSuccess: ({ user }) => {
+        dispatch(setUser({ user }));
       },
       onError: () => { navigate('/'); },
     },

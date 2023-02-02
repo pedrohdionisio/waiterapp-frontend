@@ -1,8 +1,12 @@
+import { useSelector } from 'react-redux';
+import { RootStateType } from '../../../data/store/store';
 import { Logout } from '../../features/Logout/Logout.feature';
 import { SidebarLink } from '../SidebarLink/SidebarLink.component';
 import { LinkContainer, ShortLogo, Wrapper } from './Sidebar.styles';
 
 export function Sidebar() {
+  const { user } = useSelector((state: RootStateType) => state.auth);
+
   return (
     <Wrapper>
       <ShortLogo>
@@ -13,8 +17,13 @@ export function Sidebar() {
       <LinkContainer>
         <SidebarLink icon="home" to="home" text="Home" />
         <SidebarLink icon="file-list-2" to="historico" text="Histórico" />
-        <SidebarLink icon="book-read" to="cardapio" text="Cardápio" />
-        <SidebarLink icon="user" to="usuarios" text="Usuários" />
+
+        {user.type === 'ADMIN' && (
+          <>
+            <SidebarLink icon="book-read" to="cardapio" text="Cardápio" />
+            <SidebarLink icon="user" to="usuarios" text="Usuários" />
+          </>
+        )}
       </LinkContainer>
 
       <LinkContainer>
