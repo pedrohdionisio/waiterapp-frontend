@@ -1,15 +1,14 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { logout } from '../../../data/store/slices/Auth/Auth.slice';
-import { AppDispatchType } from '../../../data/store/store';
+
+import { useAuth } from '../../../data/store/slices/Auth/useAuth.slice';
 
 export function useLogout() {
   const [isLogoutModalVisible, setIsLogoutModalVisible] = useState(false);
 
-  const dispatch = useDispatch<AppDispatchType>();
+  const { logout } = useAuth();
 
   function handleLogout() {
-    dispatch(logout());
+    logout();
   }
 
   return {

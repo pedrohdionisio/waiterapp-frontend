@@ -1,8 +1,11 @@
+import { UserType } from '../../../../shared/types/User';
+
 export interface IAuthSlice {
-  user: {
-    name: string;
-    email: string;
-    type: string;
-  }
+  user: UserType;
   isAuthenticated: boolean;
+}
+
+export interface IUseAuth {
+  token?: string;
+  user: UserType;
 }

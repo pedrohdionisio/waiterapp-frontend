@@ -1,11 +1,13 @@
-import { useSelector } from 'react-redux';
-import { RootStateType } from '../../../data/store/store';
+import { useAuth } from '../../../data/store/slices/Auth/useAuth.slice';
+
 import { Logout } from '../../features/Logout/Logout.feature';
+
 import { SidebarLink } from '../SidebarLink/SidebarLink.component';
+
 import { LinkContainer, ShortLogo, Wrapper } from './Sidebar.styles';
 
 export function Sidebar() {
-  const { user } = useSelector((state: RootStateType) => state.auth);
+  const { user } = useAuth();
 
   return (
     <Wrapper>

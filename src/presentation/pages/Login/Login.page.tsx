@@ -1,11 +1,12 @@
-import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { RootStateType } from '../../../data/store/store';
+
+import { useAuth } from '../../../data/store/slices/Auth/useAuth.slice';
+
 import { SignIn } from '../../features/SignIn/SignIn.feature';
 import { WelcomeContainer, Wrapper } from './Login.styles';
 
 export function Login() {
-  const { isAuthenticated } = useSelector((state: RootStateType) => state.auth);
+  const { isAuthenticated } = useAuth();
 
   if (isAuthenticated) {
     return <Navigate to="/dashboard/home" />;
