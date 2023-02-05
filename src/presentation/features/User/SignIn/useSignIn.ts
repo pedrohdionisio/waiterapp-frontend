@@ -1,13 +1,14 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { useState } from 'react';
-import { IAuthenticateUserPayload } from '../../../data/services/auth/AuthService.type';
-import { authenticationSchema } from '../../../data/schemas/Authentication.schema';
-import AuthService from '../../../data/services/auth/Auth.service';
-import { useAuth } from '../../../data/store/slices/Auth/useAuth.slice';
+import { useAuth } from 'data/store/slices/Auth/useAuth.slice';
+import { IAuthenticateUserPayload } from 'data/services/auth/AuthService.type';
+import AuthService from 'data/services/auth/Auth.service';
+
+import { signInFormSchema } from './components/SignInForm/SignInForm.schema';
 
 export function useSignIn() {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ export function useSignIn() {
   const { setUser } = useAuth();
 
   const { control, formState: { errors }, handleSubmit } = useForm<IAuthenticateUserPayload>({
-    resolver: yupResolver(authenticationSchema),
+    resolver: yupResolver(signInFormSchema),
   });
 
   async function handleSignInUser({ email, password }: IAuthenticateUserPayload) {

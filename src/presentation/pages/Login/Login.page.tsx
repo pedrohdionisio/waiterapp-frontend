@@ -1,8 +1,9 @@
 import { Navigate } from 'react-router-dom';
 
-import { useAuth } from '../../../data/store/slices/Auth/useAuth.slice';
+import { SignInForm } from 'presentation/features/User/SignIn/components/SignInForm/SignInForm.component';
 
-import { SignIn } from '../../features/SignIn/SignIn.feature';
+import { useAuth } from 'data/store/slices/Auth/useAuth.slice';
+
 import { WelcomeContainer, Wrapper } from './Login.styles';
 
 export function Login() {
@@ -22,7 +23,7 @@ export function Login() {
         </p>
       </WelcomeContainer>
 
-      <SignIn />
+      <SignInForm />
     </Wrapper>
   );
 }

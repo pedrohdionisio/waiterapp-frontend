@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { OrderType } from '../../../shared/types/Order';
+
+import { OrderType } from 'shared/types/Order';
 
 export function useOrdersBoard() {
   const [selectedOrder, setSelectedOrder] = useState<OrderType | null>(null);

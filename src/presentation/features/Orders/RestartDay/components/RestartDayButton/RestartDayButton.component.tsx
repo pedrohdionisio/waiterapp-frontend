@@ -1,15 +1,12 @@
-import { useState } from 'react';
-import { useTheme } from 'styled-components';
+import { Icon } from 'presentation/components/Icon/Icon.component';
+import { Modal } from 'presentation/components/Modal/Modal.component';
 
-import { Icon } from '../../components/Icon/Icon.component';
-import { Modal } from '../../components/Modal/Modal.component';
+import { useRestartDay } from '../../useRestartDay';
 
-import { ModalBody, Wrapper } from './RestartDay.styles';
+import { ModalBody, Wrapper } from './RestartDayButton.styles';
 
 export function RestartDay() {
-  const [isRestartDayModalVisible, setIsRestartDayModalVisible] = useState(false);
-
-  const theme = useTheme();
+  const { theme, isRestartDayModalVisible, setIsRestartDayModalVisible } = useRestartDay();
 
   return (
     <>

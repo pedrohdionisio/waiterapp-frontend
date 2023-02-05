@@ -1,6 +1,5 @@
-import { useAuth } from '../../../data/store/slices/Auth/useAuth.slice';
-
-import { Logout } from '../../features/Logout/Logout.feature';
+import { useAuth } from 'data/store/slices/Auth/useAuth.slice';
+import { LogoutButton } from 'presentation/features/User/Logout/components/LogoutButton/LogoutButton.component';
 
 import { SidebarLink } from '../SidebarLink/SidebarLink.component';
 
@@ -30,7 +29,7 @@ export function Sidebar() {
 
       <LinkContainer>
         <SidebarLink icon="profile" to="perfil" text="Meu Perfil" />
-        <Logout />
+        <LogoutButton />
       </LinkContainer>
     </Wrapper>
   );

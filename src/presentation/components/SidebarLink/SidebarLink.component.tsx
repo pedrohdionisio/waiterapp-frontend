@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+
 import { Icon } from '../Icon/Icon.component';
 
 import { Wrapper } from './SidebarLink.styles';

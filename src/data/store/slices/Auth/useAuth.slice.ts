@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { AppDispatchType, RootStateType } from '../../store';
+import { AppDispatchType, RootStateType } from 'data/store/store';
 
 import { logout, setUser } from './Auth.slice';
 import { IUseAuth } from './AuthSlice.types';

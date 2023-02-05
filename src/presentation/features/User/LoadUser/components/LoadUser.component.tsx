@@ -1,6 +1,6 @@
-import { SplashScreen } from '../../pages/SplashScreen/SplashScreen.page';
+import { SplashScreen } from 'presentation/pages/SplashScreen/SplashScreen.page';
 
-import { useLoadUser } from './useLoadUser';
+import { useLoadUser } from '../useLoadUser';
 
 export function LoadUser() {
   const { isLoading } = useLoadUser();

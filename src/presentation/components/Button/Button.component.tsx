@@ -1,4 +1,5 @@
 import { Loader } from '../Loader/Loader.component';
+
 import { StyledButton } from './Button.styles';
 import { IButtonProps } from './Button.types';
 

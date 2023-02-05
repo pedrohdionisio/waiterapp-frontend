@@ -1,7 +1,8 @@
 import ReactModal from 'react-modal';
 
-import close from '../../../shared/assets/images/close.svg';
-import { OverlayModalStyles } from '../../../shared/styles/GlobalStyles';
+import close from 'shared/assets/images/close.svg';
+import { OverlayModalStyles } from 'shared/styles/GlobalStyles';
+
 import { Button } from '../Button/Button.component';
 
 import {

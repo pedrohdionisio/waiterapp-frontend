@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { UserType } from '../../../../shared/types/User';
+import { UserType } from 'shared/types/User';
 
 import { IAuthSlice } from './AuthSlice.types';
 

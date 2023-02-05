@@ -1,10 +1,16 @@
 /* eslint-disable no-underscore-dangle */
-import { ManageOrder } from '../../features/ManageOrder/ManageOrder.feature';
-import {
-  Board, BoardCard, BoardHeader, Wrapper,
-} from './OrdersBoard.styles';
+
+import { ManageOrderModal } from 'presentation/features/Orders/ManageOrder/components/ManageOrderModal/ManageOrderModal.component';
+
 import { IOrdersBoardProps } from './OrdersBoard.types';
 import { useOrdersBoard } from './useOrdersBoard';
+
+import {
+  Board,
+  BoardCard,
+  BoardHeader,
+  Wrapper,
+} from './OrdersBoard.styles';
 
 export function OrdersBoard({ orders, title }: IOrdersBoardProps) {
   const {
@@ -34,7 +40,7 @@ export function OrdersBoard({ orders, title }: IOrdersBoardProps) {
         ))}
       </Board>
 
-      <ManageOrder
+      <ManageOrderModal
         order={selectedOrder!}
         onClose={handleCloseModal}
         visible={isOrderModalVisible}

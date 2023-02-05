@@ -1,8 +1,8 @@
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 
-import AuthService from '../../../data/services/auth/Auth.service';
-import { useAuth } from '../../../data/store/slices/Auth/useAuth.slice';
+import AuthService from 'data/services/auth/Auth.service';
+import { useAuth } from 'data/store/slices/Auth/useAuth.slice';
 
 export function useLoadUser() {
   const { setUser } = useAuth();

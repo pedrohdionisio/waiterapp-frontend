@@ -1,7 +1,10 @@
 import { useLocation } from 'react-router-dom';
-import { headerTexts } from '../../../shared/constants/headerTexts';
-import { RestartDay } from '../../features/RestartDay/RestartDay.feature';
-import { Icon } from '../Icon/Icon.component';
+
+import { RestartDay } from 'presentation/features/Orders/RestartDay/components/RestartDayButton/RestartDayButton.component';
+import { Icon } from 'presentation/components/Icon/Icon.component';
+
+import { headerTexts } from 'shared/constants/headerTexts';
+
 import { Info, Wrapper } from './Header.styles';
 
 export function Header() {

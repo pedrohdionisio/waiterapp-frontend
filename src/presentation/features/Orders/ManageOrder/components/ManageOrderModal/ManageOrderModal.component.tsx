@@ -1,5 +1,9 @@
-import Currency from '../../../shared/utils/currency';
-import { Modal } from '../../components/Modal/Modal.component';
+import Currency from 'shared/utils/currency';
+
+import { Modal } from 'presentation/components/Modal/Modal.component';
+
+import { useManageOrder } from '../../useManageOrder';
+
 import {
   ModalBody,
   OrderProducts,
@@ -8,11 +12,10 @@ import {
   ProductInfo,
   ProductsList,
   TotalPrice,
-} from './ManageOrder.styles';
-import { IManageOrder } from './ManageOrder.types';
-import { useManageOrder } from './useManageOrder';
+} from './ManageOrderModal.styles';
+import { IManageOrder } from './ManageOrderModal.types';
 
-export function ManageOrder({ order, visible, onClose }: IManageOrder) {
+export function ManageOrderModal({ order, visible, onClose }: IManageOrder) {
   if (!order) {
     return null;
   }

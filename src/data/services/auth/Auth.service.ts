@@ -1,4 +1,4 @@
-import HttpClient from '../../clients/HttpClient';
+import HttpClient from 'data/clients/HttpClient';
 
 import {
   IAuthenticateUserPayload,

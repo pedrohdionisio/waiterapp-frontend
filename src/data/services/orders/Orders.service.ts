@@ -1,5 +1,5 @@
-import { OrderType } from '../../../shared/types/Order';
-import HttpClient from '../../clients/HttpClient';
+import { OrderType } from 'shared/types/Order';
+import HttpClient from 'data/clients/HttpClient';
 
 class OrdersService {
   private httpClient = new HttpClient('http://localhost:3001/');

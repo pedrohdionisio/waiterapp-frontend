@@ -7,11 +7,11 @@ import { Provider } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
-import store from '../data/store/store';
+import store from 'data/store/store';
 
-import { GlobalStyles } from '../shared/styles/GlobalStyles';
-import { defaultTheme } from '../shared/styles/themes/default';
-import { AppRoutes } from '../shared/routes/index.routes';
+import { GlobalStyles } from 'shared/styles/GlobalStyles';
+import { defaultTheme } from 'shared/styles/themes/default';
+import { AppRoutes } from 'shared/routes/index.routes';
 
 function App() {
   const queryClient = new QueryClient();

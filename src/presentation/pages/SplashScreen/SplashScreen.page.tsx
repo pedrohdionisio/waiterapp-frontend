@@ -1,4 +1,4 @@
-import logo from '../../../shared/assets/images/logo.svg';
+import logo from 'shared/assets/images/logo.svg';
 
 import { Wrapper } from './SplashScreen.styles';
 

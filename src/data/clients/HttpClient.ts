@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-import delay from '../../shared/utils/delay';
+import delay from 'shared/utils/delay';
 
 interface RequestConfig {
   headers?: Record<string, string>;

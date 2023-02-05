@@ -1,4 +1,4 @@
-import { OrderType } from '../../../shared/types/Order';
+import { OrderType } from 'shared/types/Order';
 
 export function useManageOrder(order: OrderType) {
   const totalPrice = order.products.reduce(

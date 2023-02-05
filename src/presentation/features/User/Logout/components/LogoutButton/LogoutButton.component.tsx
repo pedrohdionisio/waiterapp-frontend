@@ -1,9 +1,11 @@
-import { Modal } from '../../components/Modal/Modal.component';
-import { SidebarLink } from '../../components/SidebarLink/SidebarLink.component';
-import { ModalBody, Wrapper } from './Logout.styles';
-import { useLogout } from './useLogout';
+import { Modal } from 'presentation/components/Modal/Modal.component';
+import { SidebarLink } from 'presentation/components/SidebarLink/SidebarLink.component';
 
-export function Logout() {
+import { useLogout } from '../../useLogout';
+
+import { ModalBody, Wrapper } from './LogoutButton.styles';
+
+export function LogoutButton() {
   const { isLogoutModalVisible, setIsLogoutModalVisible, handleLogout } = useLogout();
 
   return (

@@ -1,8 +1,8 @@
 import { SyntheticEvent, useState } from 'react';
 import { Controller } from 'react-hook-form';
 
-import eye from '../../../../shared/assets/images/eye.svg';
-import eyeHidden from '../../../../shared/assets/images/eye-hidden.svg';
+import eye from 'shared/assets/images/eye.svg';
+import eyeHidden from 'shared/assets/images/eye-hidden.svg';
 
 import { InputButton, StyledInput, Wrapper } from './PasswordInput.styles';
 import { IPasswordInputProps } from './PasswordInput.types';

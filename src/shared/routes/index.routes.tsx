@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
-import { Dashboard } from '../../presentation/pages/Dashboard/Dashboard.page';
 
-import { Home } from '../../presentation/pages/Home/Home.page';
-import { Login } from '../../presentation/pages/Login/Login.page';
+import { Dashboard } from 'presentation/pages/Dashboard/Dashboard.page';
+import { Home } from 'presentation/pages/Home/Home.page';
+import { Login } from 'presentation/pages/Login/Login.page';
 
 export function AppRoutes() {
   return (

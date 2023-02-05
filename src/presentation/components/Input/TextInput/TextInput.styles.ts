@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+
 import { TextInputStylesType } from './TextInput.types';
 
 export const StyledInput = styled.input<TextInputStylesType>`

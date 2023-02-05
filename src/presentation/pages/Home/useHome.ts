@@ -1,6 +1,8 @@
 import { useQuery } from 'react-query';
-import OrdersService from '../../../data/services/orders/Orders.service';
-import { OrderType } from '../../../shared/types/Order';
+
+import OrdersService from 'data/services/orders/Orders.service';
+
+import { OrderType } from 'shared/types/Order';
 
 export function useHome() {
   const { data: orders, isLoading } = useQuery<OrderType[]>(

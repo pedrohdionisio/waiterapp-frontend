@@ -1,5 +1,4 @@
 import { InputHTMLAttributes } from 'react';
-
 import { Control } from 'react-hook-form';
 
 export interface ITextInputProps extends InputHTMLAttributes<HTMLInputElement> {

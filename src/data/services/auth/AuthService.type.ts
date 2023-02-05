@@ -1,4 +1,4 @@
-import { UserType } from '../../../shared/types/User';
+import { UserType } from 'shared/types/User';
 
 export interface IAuthenticateUserPayload {
   email: string;

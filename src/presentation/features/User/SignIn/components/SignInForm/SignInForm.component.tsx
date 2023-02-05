@@ -1,12 +1,12 @@
-import { Button } from '../../components/Button/Button.component';
-import { InputContainer } from '../../components/Input/InputContainer/InputContainer.component';
-import { PasswordInput } from '../../components/Input/PasswordInput/PasswordInput.component';
-import { TextInput } from '../../components/Input/TextInput/TextInput.component';
+import { Button } from '../../../../../components/Button/Button.component';
+import { InputContainer } from '../../../../../components/Input/InputContainer/InputContainer.component';
+import { PasswordInput } from '../../../../../components/Input/PasswordInput/PasswordInput.component';
+import { TextInput } from '../../../../../components/Input/TextInput/TextInput.component';
 
-import { Form } from './SignIn.styles';
-import { useSignIn } from './useSignIn';
+import { Form } from './SignInForm.styles';
+import { useSignIn } from '../../useSignIn';
 
-export function SignIn() {
+export function SignInForm() {
   const {
     isLoading, control, errors, handleSignInUser, handleSubmit,
   } = useSignIn();

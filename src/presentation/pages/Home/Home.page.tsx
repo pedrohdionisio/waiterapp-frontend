@@ -1,7 +1,8 @@
-import { Loader } from '../../components/Loader/Loader.component';
-import { OrdersBoard } from '../../components/OrdersBoard/OrdersBoard.component';
+import { Loader } from 'presentation/components/Loader/Loader.component';
+import { OrdersBoard } from 'presentation/components/OrdersBoard/OrdersBoard.component';
 
 import { useHome } from './useHome';
+
 import { LoaderContainer, Wrapper } from './Home.styles';
 
 export function Home() {
