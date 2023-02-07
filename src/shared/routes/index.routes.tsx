@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Dashboard } from 'presentation/pages/Dashboard/Dashboard.page';
 import { Home } from 'presentation/pages/Home/Home.page';
 import { Login } from 'presentation/pages/Login/Login.page';
+import { History } from 'presentation/pages/History/History.page';
 
 export function AppRoutes() {
   return (
@@ -11,7 +12,7 @@ export function AppRoutes() {
 
       <Route path="/dashboard" element={<Dashboard />}>
         <Route path="home" element={<Home />} />
-        <Route path="historico" element={<h1>Histórico</h1>} />
+        <Route path="historico" element={<History />} />
       </Route>
     </Routes>
   );
