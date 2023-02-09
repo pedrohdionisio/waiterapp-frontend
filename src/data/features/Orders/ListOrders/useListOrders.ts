@@ -8,13 +8,11 @@ import { queryKeys } from 'shared/constants/queryKeys';
 
 export function useListOrders() {
   const {
-    data: orders, isLoading, isError,
+    data: orders, isLoading, isError, isFetching,
   } = useQuery<OrderType[]>(
     queryKeys.orders.load,
     () => OrdersService.listOrders(),
     {
-      refetchOnWindowFocus: false,
-      retry: false,
       onError: () => {
         toast.error('Ocorreu um erro ao carregar os pedidos');
       },
@@ -28,7 +26,7 @@ export function useListOrders() {
   const done = orders?.filter((order) => order.status === 'DONE');
 
   return {
-    isLoading,
+    isLoading: isLoading || isFetching,
     waiting,
     inProduction,
     done,

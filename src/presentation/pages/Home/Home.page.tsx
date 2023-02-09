@@ -1,6 +1,7 @@
 import { Loader } from 'presentation/components/Loader/Loader.component';
 import { OrdersBoard } from 'presentation/components/OrdersBoard/OrdersBoard.component';
-import { useListOrders } from 'presentation/features/Orders/ListOrders/useListOrders';
+
+import { useListOrders } from 'data/features/Orders/ListOrders/useListOrders';
 
 import { LoaderContainer, Wrapper } from './Home.styles';
 

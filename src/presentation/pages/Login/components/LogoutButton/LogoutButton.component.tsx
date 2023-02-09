@@ -3,7 +3,8 @@ import { GhostButton } from 'presentation/components/Button/GhostButton/GhostBut
 import { ModalActions } from 'presentation/components/Modal/ModalActions/ModalActions.component';
 import { ModalContainer } from 'presentation/components/Modal/ModalContainer/ModalContainer.component';
 import { SidebarLink } from 'presentation/components/SidebarLink/SidebarLink.component';
-import { useLogout } from 'presentation/features/User/Logout/useLogout';
+
+import { useLogout } from 'data/features/User/Logout/useLogout';
 
 import { ModalBody, Wrapper } from './LogoutButton.styles';
 

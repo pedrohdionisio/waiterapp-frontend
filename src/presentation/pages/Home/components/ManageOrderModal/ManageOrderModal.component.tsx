@@ -1,7 +1,8 @@
 import Currency from 'shared/utils/currency';
 
-import { useShowOrder } from 'presentation/features/Orders/ShowOrder/useShowOrder';
-import { useCancelOrder } from 'presentation/features/Orders/CancelOrder/useCancelOrder';
+import { useShowOrder } from 'data/features/Orders/ShowOrder/useShowOrder';
+import { useCancelOrder } from 'data/features/Orders/CancelOrder/useCancelOrder';
+
 import { ModalContainer } from 'presentation/components/Modal/ModalContainer/ModalContainer.component';
 import { ModalActions } from 'presentation/components/Modal/ModalActions/ModalActions.component';
 import { GhostButton } from 'presentation/components/Button/GhostButton/GhostButton.component';
@@ -24,7 +25,11 @@ export function ManageOrderModal({ order, visible, onClose }: IManageOrder) {
   }
 
   const { totalPrice } = useShowOrder(order);
-  const { handleCancelOrder, isFinished } = useCancelOrder(order._id, order.table);
+  const { handleCancelOrder, isFinished, isLoading } = useCancelOrder(
+    order._id,
+    order.table,
+    onClose,
+  );
 
   return (
     <ModalContainer
@@ -76,8 +81,12 @@ export function ManageOrderModal({ order, visible, onClose }: IManageOrder) {
       </ModalBody>
 
       <ModalActions>
-        <GhostButton text="Cancelar pedido" onClick={handleCancelOrder} />
-        <DefaultButton text="Concluir pedido" />
+        <GhostButton
+          text="Cancelar pedido"
+          onClick={handleCancelOrder}
+          disabled={isLoading}
+        />
+        <DefaultButton text="Concluir pedido" disabled={isLoading} />
       </ModalActions>
     </ModalContainer>
   );

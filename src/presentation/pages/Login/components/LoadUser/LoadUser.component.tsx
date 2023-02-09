@@ -1,4 +1,5 @@
-import { useLoadUser } from 'presentation/features/User/LoadUser/useLoadUser';
+import { useLoadUser } from 'data/features/User/LoadUser/useLoadUser';
+
 import { SplashScreen } from 'presentation/pages/SplashScreen/SplashScreen.page';
 
 export function LoadUser() {

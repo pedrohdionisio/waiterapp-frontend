@@ -2,7 +2,8 @@ import { DefaultButton } from 'presentation/components/Button/DefaultButton/Defa
 import { InputContainer } from 'presentation/components/Input/InputContainer/InputContainer.component';
 import { PasswordInput } from 'presentation/components/Input/PasswordInput/PasswordInput.component';
 import { TextInput } from 'presentation/components/Input/TextInput/TextInput.component';
-import { useSignIn } from 'presentation/features/User/SignIn/useSignIn';
+
+import { useSignIn } from 'data/features/User/SignIn/useSignIn';
 
 import { Form } from './SignInForm.styles';
 

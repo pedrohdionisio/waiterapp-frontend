@@ -3,7 +3,8 @@ import { GhostButton } from 'presentation/components/Button/GhostButton/GhostBut
 import { Icon } from 'presentation/components/Icon/Icon.component';
 import { ModalActions } from 'presentation/components/Modal/ModalActions/ModalActions.component';
 import { ModalContainer } from 'presentation/components/Modal/ModalContainer/ModalContainer.component';
-import { useRestartDay } from 'presentation/features/Orders/RestartDay/useRestartDay';
+
+import { useRestartDay } from 'data/features/Orders/RestartDay/useRestartDay';
 
 import { ModalBody, Wrapper } from './RestartDayButton.styles';
 
