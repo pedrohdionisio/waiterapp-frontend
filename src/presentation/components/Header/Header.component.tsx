@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 
-import { RestartDay } from 'presentation/features/Orders/RestartDay/components/RestartDayButton/RestartDayButton.component';
 import { Icon } from 'presentation/components/Icon/Icon.component';
+import { RestartDayButton } from 'presentation/pages/Home/components/RestartDayButton/RestartDayButton.component';
 
 import { headerTexts } from 'shared/constants/headerTexts';
 
@@ -23,7 +23,7 @@ export function Header() {
         <p>{headerTexts[route].text}</p>
       </Info>
 
-      {route === 'home' && <RestartDay />}
+      {route === 'home' && <RestartDayButton />}
     </Wrapper>
   );
 }

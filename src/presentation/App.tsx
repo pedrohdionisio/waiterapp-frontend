@@ -14,7 +14,13 @@ import { defaultTheme } from 'shared/styles/themes/default';
 import { AppRoutes } from 'shared/routes/index.routes';
 
 function App() {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: 1,
+      },
+    },
+  });
 
   return (
     <ThemeProvider theme={defaultTheme}>

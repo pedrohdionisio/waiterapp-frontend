@@ -1,10 +1,10 @@
-import { Button } from '../../../../../components/Button/Button.component';
-import { InputContainer } from '../../../../../components/Input/InputContainer/InputContainer.component';
-import { PasswordInput } from '../../../../../components/Input/PasswordInput/PasswordInput.component';
-import { TextInput } from '../../../../../components/Input/TextInput/TextInput.component';
+import { DefaultButton } from 'presentation/components/Button/DefaultButton/DefaultButton.component';
+import { InputContainer } from 'presentation/components/Input/InputContainer/InputContainer.component';
+import { PasswordInput } from 'presentation/components/Input/PasswordInput/PasswordInput.component';
+import { TextInput } from 'presentation/components/Input/TextInput/TextInput.component';
+import { useSignIn } from 'presentation/features/User/SignIn/useSignIn';
 
 import { Form } from './SignInForm.styles';
-import { useSignIn } from '../../useSignIn';
 
 export function SignInForm() {
   const {
@@ -32,7 +32,7 @@ export function SignInForm() {
         />
       </InputContainer>
 
-      <Button
+      <DefaultButton
         type="submit"
         text="Fazer Login"
         isLoading={isLoading}

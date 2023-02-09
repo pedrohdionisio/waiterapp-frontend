@@ -8,7 +8,7 @@ import { useAuth } from 'data/store/slices/Auth/useAuth.slice';
 import { IAuthenticateUserPayload } from 'data/services/auth/AuthService.type';
 import AuthService from 'data/services/auth/Auth.service';
 
-import { signInFormSchema } from './components/SignInForm/SignInForm.schema';
+import { signInFormSchema } from 'presentation/pages/Login/components/SignInForm/SignInForm.schema';
 
 export function useSignIn() {
   const navigate = useNavigate();

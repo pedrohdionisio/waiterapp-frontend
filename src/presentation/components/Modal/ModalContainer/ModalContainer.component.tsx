@@ -3,27 +3,20 @@ import ReactModal from 'react-modal';
 import close from 'shared/assets/images/close.svg';
 import { OverlayModalStyles } from 'shared/styles/GlobalStyles';
 
-import { Button } from '../Button/Button.component';
+import { ContentStyles, ModalHeader } from './ModalContainer.styles';
+import { IModalContainerProps } from './ModalContainer.types';
 
-import {
-  CancelButton, ContentStyles, ModalActions, ModalHeader,
-} from './Modal.styles';
-import { IModalProps } from './Modal.types';
-
-export function Modal({
+export function ModalContainer({
   visible,
   title,
   children,
-  primaryActionText,
-  secondaryActionText,
   size = 'normal',
-  action,
-  onClose,
-}: IModalProps) {
+  onRequestClose,
+}: IModalContainerProps) {
   return (
     <ReactModal
       isOpen={visible}
-      onRequestClose={onClose}
+      onRequestClose={onRequestClose}
       style={{
         overlay: OverlayModalStyles,
         content: {
@@ -34,20 +27,12 @@ export function Modal({
     >
       <ModalHeader>
         <h2>{title}</h2>
-        <button onClick={onClose} type="button">
+        <button onClick={onRequestClose} type="button">
           <img src={close} alt="Fechar modal" />
         </button>
       </ModalHeader>
 
       {children}
-
-      <ModalActions>
-        <CancelButton onClick={onClose}>
-          <span>{secondaryActionText}</span>
-        </CancelButton>
-
-        <Button text={primaryActionText} onClick={action} />
-      </ModalActions>
     </ReactModal>
   );
 }

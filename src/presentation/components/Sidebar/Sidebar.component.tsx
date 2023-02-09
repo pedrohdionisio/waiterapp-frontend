@@ -1,5 +1,6 @@
 import { useAuth } from 'data/store/slices/Auth/useAuth.slice';
-import { LogoutButton } from 'presentation/features/User/Logout/components/LogoutButton/LogoutButton.component';
+
+import { LogoutButton } from 'presentation/pages/Login/components/LogoutButton/LogoutButton.component';
 
 import { SidebarLink } from '../SidebarLink/SidebarLink.component';
 

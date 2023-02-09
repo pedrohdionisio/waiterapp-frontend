@@ -13,5 +13,15 @@ class OrdersService {
 
     return data;
   }
+
+  async cancelOrder(id: string) {
+    const headers = {
+      Authorization: `Bearer ${JSON.parse(window.localStorage.getItem('token')!)}`,
+    };
+
+    const { data } = await this.httpClient.delete(`/orders/${id}`, { headers });
+
+    return data;
+  }
 }
 export default new OrdersService();

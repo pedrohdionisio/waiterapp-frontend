@@ -1,9 +1,13 @@
 import Currency from 'shared/utils/currency';
 
-import { Modal } from 'presentation/components/Modal/Modal.component';
+import { useShowOrder } from 'presentation/features/Orders/ShowOrder/useShowOrder';
+import { useCancelOrder } from 'presentation/features/Orders/CancelOrder/useCancelOrder';
+import { ModalContainer } from 'presentation/components/Modal/ModalContainer/ModalContainer.component';
+import { ModalActions } from 'presentation/components/Modal/ModalActions/ModalActions.component';
+import { GhostButton } from 'presentation/components/Button/GhostButton/GhostButton.component';
+import { DefaultButton } from 'presentation/components/Button/DefaultButton/DefaultButton.component';
 
-import { useManageOrder } from '../../useManageOrder';
-
+import { IManageOrder } from './ManageOrderModal.types';
 import {
   ModalBody,
   OrderProducts,
@@ -13,23 +17,20 @@ import {
   ProductsList,
   TotalPrice,
 } from './ManageOrderModal.styles';
-import { IManageOrder } from './ManageOrderModal.types';
 
 export function ManageOrderModal({ order, visible, onClose }: IManageOrder) {
   if (!order) {
     return null;
   }
 
-  const { totalPrice } = useManageOrder(order);
+  const { totalPrice } = useShowOrder(order);
+  const { handleCancelOrder, isFinished } = useCancelOrder(order._id, order.table);
 
   return (
-    <Modal
+    <ModalContainer
       title={`Mesa ${order.table}`}
-      visible={visible}
-      primaryActionText="Concluir pedido"
-      secondaryActionText="Cancelar pedido"
-      action={() => {}}
-      onClose={onClose}
+      visible={visible || isFinished}
+      onRequestClose={onClose}
     >
       <ModalBody>
         <OrderStatus>
@@ -73,6 +74,11 @@ export function ManageOrderModal({ order, visible, onClose }: IManageOrder) {
           </TotalPrice>
         </OrderProducts>
       </ModalBody>
-    </Modal>
+
+      <ModalActions>
+        <GhostButton text="Cancelar pedido" onClick={handleCancelOrder} />
+        <DefaultButton text="Concluir pedido" />
+      </ModalActions>
+    </ModalContainer>
   );
 }

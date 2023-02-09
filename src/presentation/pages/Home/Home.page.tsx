@@ -1,7 +1,6 @@
 import { Loader } from 'presentation/components/Loader/Loader.component';
 import { OrdersBoard } from 'presentation/components/OrdersBoard/OrdersBoard.component';
-
-import { useHome } from './useHome';
+import { useListOrders } from 'presentation/features/Orders/ListOrders/useListOrders';
 
 import { LoaderContainer, Wrapper } from './Home.styles';
 
@@ -11,7 +10,7 @@ export function Home() {
     waiting,
     inProduction,
     done,
-  } = useHome();
+  } = useListOrders();
 
   if (isLoading) {
     return (
@@ -20,7 +19,6 @@ export function Home() {
       </LoaderContainer>
     );
   }
-
   return (
     <Wrapper>
       <OrdersBoard orders={waiting} title="Fila de Espera" />

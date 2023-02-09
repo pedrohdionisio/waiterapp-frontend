@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 
-import { ManageOrderModal } from 'presentation/features/Orders/ManageOrder/components/ManageOrderModal/ManageOrderModal.component';
+import { ManageOrderModal } from 'presentation/pages/Home/components/ManageOrderModal/ManageOrderModal.component';
 
 import { IOrdersBoardProps } from './OrdersBoard.types';
 import { useOrdersBoard } from './useOrdersBoard';
