@@ -27,7 +27,6 @@ export function useCancelOrder(id: string, table: string, onClose: () => void) {
 
   return {
     handleCancelOrder,
-    isLoading: mutation.isLoading,
-    isFinished: mutation.isSuccess,
+    isCancelOrderLoading: mutation.isLoading,
   };
 }

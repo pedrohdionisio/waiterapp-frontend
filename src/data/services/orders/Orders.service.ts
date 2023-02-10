@@ -1,4 +1,4 @@
-import { OrderType } from 'shared/types/Order';
+import { OrderStatusType, OrderType } from 'shared/types/Order';
 import HttpClient from 'data/clients/HttpClient';
 
 class OrdersService {
@@ -20,6 +20,16 @@ class OrdersService {
     };
 
     const { data } = await this.httpClient.delete(`/orders/${id}`, { headers });
+
+    return data;
+  }
+
+  async changeOrderStatus(id: string, status: OrderStatusType) {
+    const headers = {
+      Authorization: `Bearer ${JSON.parse(window.localStorage.getItem('token')!)}`,
+    };
+
+    const { data } = await this.httpClient.patch(`/orders/${id}`, { status }, { headers });
 
     return data;
   }

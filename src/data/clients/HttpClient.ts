@@ -31,6 +31,11 @@ class HttpClient {
       .put<TResponse, AxiosResponse<TResponse, TData>, TData>(path, data, config);
   }
 
+  patch<TResponse = unknown, TData = unknown>(path: string, data?: TData, config?: RequestConfig) {
+    return this.makeRequest
+      .patch<TResponse, AxiosResponse<TResponse, TData>, TData>(path, data, config);
+  }
+
   delete<TResponse = unknown>(path: string, config?: RequestConfig) {
     return this.makeRequest.delete<TResponse>(path, config);
   }

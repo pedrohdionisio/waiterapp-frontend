@@ -2,6 +2,7 @@ import Currency from 'shared/utils/currency';
 
 import { useShowOrder } from 'data/features/Orders/ShowOrder/useShowOrder';
 import { useCancelOrder } from 'data/features/Orders/CancelOrder/useCancelOrder';
+import { useChangeOrderStatus } from 'data/features/Orders/ChangeOrderStatus/useChangeOrderStatus';
 
 import { ModalContainer } from 'presentation/components/Modal/ModalContainer/ModalContainer.component';
 import { ModalActions } from 'presentation/components/Modal/ModalActions/ModalActions.component';
@@ -25,16 +26,23 @@ export function ManageOrderModal({ order, visible, onClose }: IManageOrder) {
   }
 
   const { totalPrice } = useShowOrder(order);
-  const { handleCancelOrder, isFinished, isLoading } = useCancelOrder(
+  const { handleCancelOrder, isCancelOrderLoading } = useCancelOrder(
     order._id,
     order.table,
+    onClose,
+  );
+
+  const { handleChangeOrderStatus, isChangeStatusLoading } = useChangeOrderStatus(
+    order._id,
+    order.table,
+    order.status,
     onClose,
   );
 
   return (
     <ModalContainer
       title={`Mesa ${order.table}`}
-      visible={visible || isFinished}
+      visible={visible}
       onRequestClose={onClose}
     >
       <ModalBody>
@@ -80,14 +88,25 @@ export function ManageOrderModal({ order, visible, onClose }: IManageOrder) {
         </OrderProducts>
       </ModalBody>
 
+      {order.status !== 'DONE' && (
       <ModalActions>
         <GhostButton
           text="Cancelar pedido"
           onClick={handleCancelOrder}
-          disabled={isLoading}
+          disabled={isCancelOrderLoading || isChangeStatusLoading}
         />
-        <DefaultButton text="Concluir pedido" disabled={isLoading} />
+
+        <DefaultButton
+          onClick={handleChangeOrderStatus}
+          text={
+              order.status === 'WAITING'
+                ? 'Mover para produção'
+                : 'Concluir pedido'
+            }
+          disabled={isChangeStatusLoading || isCancelOrderLoading}
+        />
       </ModalActions>
+      )}
     </ModalContainer>
   );
 }
