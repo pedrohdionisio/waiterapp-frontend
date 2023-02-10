@@ -3,7 +3,7 @@ import { OrdersBoard } from 'presentation/components/OrdersBoard/OrdersBoard.com
 
 import { useListOrders } from 'data/features/Orders/ListOrders/useListOrders';
 
-import { LoaderContainer, Wrapper } from './Home.styles';
+import { Wrapper } from './Home.styles';
 
 export function Home() {
   const {
@@ -13,20 +13,20 @@ export function Home() {
     done,
   } = useListOrders();
 
-  if (isLoading) {
-    return (
-      <LoaderContainer>
-        <Loader />
-      </LoaderContainer>
-    );
-  }
   return (
     <Wrapper>
-      <OrdersBoard orders={waiting} title="Fila de Espera" />
+      <Loader isLoading={isLoading} />
 
-      <OrdersBoard orders={inProduction} title="Em produção" />
+      {!isLoading && (
+        <>
+          <OrdersBoard orders={waiting} title="Fila de Espera" />
 
-      <OrdersBoard orders={done} title="Finalizado" />
+          <OrdersBoard orders={inProduction} title="Em produção" />
+
+          <OrdersBoard orders={done} title="Finalizado" />
+
+        </>
+      )}
     </Wrapper>
   );
 }

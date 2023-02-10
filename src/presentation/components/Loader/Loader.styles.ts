@@ -1,14 +1,13 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
-const rotate = keyframes`
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(359deg);
-    }
-`;
-
-export const Wrapper = styled.div`
-  animation: ${rotate} 1s infinite linear;
+export const Overlay = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(246, 245, 252, .7);
 `;

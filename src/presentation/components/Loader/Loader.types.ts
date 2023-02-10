@@ -1,5 +1,4 @@
 export interface ILoaderProps {
-  width?: string;
-  height?: string;
+  isLoading?: boolean;
   color?: string;
 }

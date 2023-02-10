@@ -93,7 +93,7 @@ export function ManageOrderModal({ order, visible, onClose }: IManageOrder) {
         <GhostButton
           text="Cancelar pedido"
           onClick={handleCancelOrder}
-          disabled={isCancelOrderLoading || isChangeStatusLoading}
+          disabled={isChangeStatusLoading || isCancelOrderLoading}
         />
 
         <DefaultButton
@@ -103,7 +103,7 @@ export function ManageOrderModal({ order, visible, onClose }: IManageOrder) {
                 ? 'Mover para produção'
                 : 'Concluir pedido'
             }
-          disabled={isChangeStatusLoading || isCancelOrderLoading}
+          isLoading={isChangeStatusLoading || isCancelOrderLoading}
         />
       </ModalActions>
       )}
