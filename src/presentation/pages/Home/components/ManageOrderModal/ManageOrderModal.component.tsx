@@ -21,23 +21,23 @@ import {
 } from './ManageOrderModal.styles';
 
 export function ManageOrderModal({ order, visible, onClose }: IManageOrder) {
-  if (!order) {
-    return null;
-  }
-
   const { totalPrice } = useShowOrder(order);
   const { handleCancelOrder, isCancelOrderLoading } = useCancelOrder(
-    order._id,
-    order.table,
+    order?._id,
+    order?.table,
     onClose,
   );
 
   const { handleChangeOrderStatus, isChangeStatusLoading } = useChangeOrderStatus(
-    order._id,
-    order.table,
-    order.status,
+    order?._id,
+    order?.table,
+    order?.status,
     onClose,
   );
+
+  if (!order) {
+    return null;
+  }
 
   return (
     <ModalContainer

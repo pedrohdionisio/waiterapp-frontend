@@ -1,7 +1,7 @@
 import { OrderType } from 'shared/types/Order';
 
-export function useShowOrder(order: OrderType) {
-  const totalPrice = order.products.reduce(
+export function useShowOrder(order: OrderType | null) {
+  const totalPrice = order?.products.reduce(
     (total, { product, quantity }) => (total += product.price * quantity),
     0,
   );
