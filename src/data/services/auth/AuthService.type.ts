@@ -1,3 +1,16 @@
 import { UserType } from 'shared/types/User';
 
-export type AuthenticateUserPayloadType = Pick<UserType, 'email' | 'password'>;
+export interface IAuthenticateUserPayload {
+  email: string;
+  password: string;
+}
+
+export interface IAuthenticateUserResponse {
+  token: string;
+  user: UserType;
+}
+
+export interface IGetAuthenticatedUserResponse {
+  user: UserType;
+  isAuthenticated: boolean;
+}

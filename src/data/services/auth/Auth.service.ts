@@ -1,18 +1,21 @@
 import HttpClient from 'data/clients/HttpClient';
-import { IAuthenticatedUser } from 'shared/types/User';
-import AuthMapper from './Auth.mapper';
-import { AuthenticateUserPayloadType } from './AuthService.type';
+
+import {
+  IAuthenticateUserPayload,
+  IAuthenticateUserResponse,
+  IGetAuthenticatedUserResponse,
+} from './AuthService.type';
 
 class AuthService {
   private httpClient = new HttpClient('http://localhost:3001/');
 
-  async authenticateUser(payload: AuthenticateUserPayloadType) {
+  async authenticateUser(payload: IAuthenticateUserPayload) {
     const { data } = await this.httpClient.post<
-      IAuthenticatedUser,
-      AuthenticateUserPayloadType
-    >('/login', AuthMapper.toPersistence(payload));
+      IAuthenticateUserResponse,
+      IAuthenticateUserPayload
+    >('/login', payload);
 
-    return AuthMapper.toDomain(data);
+    return data;
   }
 
   async getAuthenticatedUser() {
@@ -21,10 +24,10 @@ class AuthService {
     };
 
     const { data } = await this.httpClient.get<
-      IAuthenticatedUser
+      IGetAuthenticatedUserResponse
     >('/users/authenticated', { headers });
 
-    return AuthMapper.toDomain(data);
+    return data;
   }
 }
 export default new AuthService();
