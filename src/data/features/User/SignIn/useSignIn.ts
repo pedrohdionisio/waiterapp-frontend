@@ -5,21 +5,21 @@ import { toast } from 'react-toastify';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { useAuth } from 'data/store/slices/Auth/useAuth.slice';
-import { IAuthenticateUserPayload } from 'data/services/auth/AuthService.type';
 import AuthService from 'data/services/auth/Auth.service';
 
 import { signInFormSchema } from 'presentation/pages/Login/components/SignInForm/SignInForm.schema';
+import { AuthenticateUserPayloadType } from 'data/services/auth/AuthService.type';
 
 export function useSignIn() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const { setUser } = useAuth();
 
-  const { control, formState: { errors }, handleSubmit } = useForm<IAuthenticateUserPayload>({
+  const { control, formState: { errors }, handleSubmit } = useForm<AuthenticateUserPayloadType>({
     resolver: yupResolver(signInFormSchema),
   });
 
-  async function handleSignInUser({ email, password }: IAuthenticateUserPayload) {
+  async function handleSignInUser({ email, password }: AuthenticateUserPayloadType) {
     try {
       setIsLoading(true);
       const { token, user } = await AuthService.authenticateUser({ email, password });
