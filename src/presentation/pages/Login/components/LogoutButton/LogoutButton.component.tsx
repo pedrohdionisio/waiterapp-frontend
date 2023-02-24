@@ -4,7 +4,7 @@ import { ModalActions } from 'presentation/components/Modal/ModalActions/ModalAc
 import { ModalContainer } from 'presentation/components/Modal/ModalContainer/ModalContainer.component';
 import { SidebarLink } from 'presentation/components/SidebarLink/SidebarLink.component';
 
-import { useLogout } from 'data/features/User/Logout/useLogout';
+import { useLogout } from 'data/features/user/logout/useLogout';
 
 import { ModalBody, Wrapper } from './LogoutButton.styles';
 

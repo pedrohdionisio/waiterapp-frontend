@@ -1,4 +1,4 @@
-import { useLoadUser } from 'data/features/User/LoadUser/useLoadUser';
+import { useLoadUser } from 'data/features/user/load-user/useLoadUser';
 
 import { SplashScreen } from 'presentation/pages/SplashScreen/SplashScreen.page';
 

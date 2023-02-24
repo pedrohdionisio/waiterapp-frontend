@@ -3,7 +3,7 @@ import { InputContainer } from 'presentation/components/Input/InputContainer/Inp
 import { PasswordInput } from 'presentation/components/Input/PasswordInput/PasswordInput.component';
 import { TextInput } from 'presentation/components/Input/TextInput/TextInput.component';
 
-import { useSignIn } from 'data/features/User/SignIn/useSignIn';
+import { useSignIn } from 'data/features/user/sign-in/useSignIn';
 
 import { Form } from './SignInForm.styles';
 

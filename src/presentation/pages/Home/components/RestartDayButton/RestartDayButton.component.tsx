@@ -1,10 +1,10 @@
+import { useRestartDay } from 'data/features/orders/restart-day/useRestartDay';
+
 import { DefaultButton } from 'presentation/components/Button/DefaultButton/DefaultButton.component';
 import { GhostButton } from 'presentation/components/Button/GhostButton/GhostButton.component';
 import { Icon } from 'presentation/components/Icon/Icon.component';
 import { ModalActions } from 'presentation/components/Modal/ModalActions/ModalActions.component';
 import { ModalContainer } from 'presentation/components/Modal/ModalContainer/ModalContainer.component';
-
-import { useRestartDay } from 'data/features/Orders/RestartDay/useRestartDay';
 
 import { ModalBody, Wrapper } from './RestartDayButton.styles';
 

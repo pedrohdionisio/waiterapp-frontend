@@ -1,8 +1,8 @@
 import Currency from 'shared/utils/currency';
 
-import { useShowOrder } from 'data/features/Orders/ShowOrder/useShowOrder';
-import { useCancelOrder } from 'data/features/Orders/CancelOrder/useCancelOrder';
-import { useChangeOrderStatus } from 'data/features/Orders/ChangeOrderStatus/useChangeOrderStatus';
+import { useShowOrder } from 'data/features/orders/show-order/useShowOrder';
+import { useCancelOrder } from 'data/features/orders/cancel-order/useCancelOrder';
+import { useChangeOrderStatus } from 'data/features/orders/change-order-status/useChangeOrderStatus';
 
 import { ModalContainer } from 'presentation/components/Modal/ModalContainer/ModalContainer.component';
 import { ModalActions } from 'presentation/components/Modal/ModalActions/ModalActions.component';
