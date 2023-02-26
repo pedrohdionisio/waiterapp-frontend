@@ -9,6 +9,8 @@ export function GhostButton({
   text,
   ...rest
 }: IGhostButtonProps): JSX.Element {
+  const teste: number = '';
+
   return (
     <StyledButton {...rest}>
       {isLoading && <Spinner size={10} />}
