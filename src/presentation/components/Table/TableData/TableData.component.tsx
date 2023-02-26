@@ -1,10 +1,7 @@
-import { Wrapper } from './TableData.styles';
-import { ITableDataProps } from './TableData.types';
+import { type ITableDataProps } from './TableData.types';
 
-export function TableData({ children }: ITableDataProps) {
-  return (
-    <Wrapper>
-      {children}
-    </Wrapper>
-  );
+import { Wrapper } from './TableData.styles';
+
+export function TableData({ children }: ITableDataProps): JSX.Element {
+  return <Wrapper>{children}</Wrapper>;
 }

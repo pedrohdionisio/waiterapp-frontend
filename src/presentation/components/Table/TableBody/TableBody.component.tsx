@@ -1,10 +1,7 @@
-import { Wrapper } from './TableBody.styles';
-import { ITableBodyProps } from './TableBody.types';
+import { type ITableBodyProps } from './TableBody.types';
 
-export function TableBody({ children }: ITableBodyProps) {
-  return (
-    <Wrapper>
-      {children}
-    </Wrapper>
-  );
+import { Wrapper } from './TableBody.styles';
+
+export function TableBody({ children }: ITableBodyProps): JSX.Element {
+  return <Wrapper>{children}</Wrapper>;
 }

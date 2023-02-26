@@ -2,15 +2,15 @@ import { Navigate } from 'react-router-dom';
 
 import { useAuth } from 'data/store/slices/Auth/useAuth.slice';
 
-import { SignInForm } from './components/SignInForm/SignInForm.component';
+import { SignInForm } from './components/SignInForm';
 
 import { WelcomeContainer, Wrapper } from './Login.styles';
 
-export function Login() {
+export function Login(): JSX.Element {
   const { isAuthenticated } = useAuth();
 
   if (isAuthenticated) {
-    return <Navigate to="/dashboard/home" />;
+    return <Navigate to='/dashboard/home' />;
   }
 
   return (

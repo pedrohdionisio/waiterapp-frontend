@@ -2,10 +2,13 @@ import logo from 'shared/assets/images/logo.svg';
 
 import { Wrapper } from './SplashScreen.styles';
 
-export function SplashScreen() {
+export function SplashScreen(): JSX.Element {
   return (
     <Wrapper>
-      <img src={logo} alt="" />
+      <img
+        src={logo}
+        alt='WaiterApp'
+      />
 
       <span>
         <strong>WAITER</strong>

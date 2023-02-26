@@ -1,4 +1,6 @@
-import { UserType } from 'shared/types/User';
+import { type IAuthenticateUserResponse } from 'data/services/auth/authService.type';
+
+import { type UserType } from 'shared/types/User';
 
 export interface IAuthSlice {
   user: UserType;
@@ -6,6 +8,8 @@ export interface IAuthSlice {
 }
 
 export interface IUseAuth {
-  token?: string;
+  setUser: (params: IAuthenticateUserResponse) => void;
+  logout: () => void;
+  isAuthenticated: boolean;
   user: UserType;
 }

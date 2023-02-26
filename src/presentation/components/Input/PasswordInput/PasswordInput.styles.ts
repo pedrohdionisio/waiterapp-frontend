@@ -1,21 +1,23 @@
 import styled, { css } from 'styled-components';
 
-import { PasswordInputStylesType } from './PasswordInput.types';
+import { type PasswordInputStylesType } from './PasswordInput.types';
 
 export const Wrapper = styled.div<PasswordInputStylesType>`
   display: flex;
   align-items: center;
   border: 1px solid ${({ theme }) => theme.colors.gray[100]};
   border-radius: 8px;
-  transition: border-color .3s ease-in;
+  transition: border-color 0.3s ease-in;
 
   &:focus-within {
     border-color: ${({ theme }) => theme.colors.gray[500]};
   }
 
-  ${({ hasError }) => hasError && css`
-    border-color: ${({ theme }) => theme.colors.primary[500]};
-  `}
+  ${({ hasError }) =>
+    hasError &&
+    css`
+      border-color: ${({ theme }) => theme.colors.primary[500]};
+    `}
 `;
 
 export const StyledInput = styled.input`

@@ -1,17 +1,18 @@
 import { NavLink } from 'react-router-dom';
 
-import { Icon } from '../Icon/Icon.component';
+import { Icon } from '../Icon';
+
+import { type ISidebarLinkProps } from './SidebarLink.types';
 
 import { Wrapper } from './SidebarLink.styles';
-import { ISidebarLinkProps } from './SidebarLink.types';
 
 export function SidebarLink({
   icon,
   text,
   to = '',
   button = false,
-  onClick,
-}: ISidebarLinkProps) {
+  onClick
+}: ISidebarLinkProps): JSX.Element {
   return (
     <Wrapper>
       {!button && (
@@ -25,7 +26,10 @@ export function SidebarLink({
       )}
 
       {button && (
-        <button type="button" onClick={onClick}>
+        <button
+          type='button'
+          onClick={onClick}
+        >
           <Icon name={icon} />
           {text}
         </button>

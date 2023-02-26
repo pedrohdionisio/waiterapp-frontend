@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { TextInputStylesType } from './TextInput.types';
+import { type TextInputStylesType } from './TextInput.types';
 
 export const StyledInput = styled.input<TextInputStylesType>`
   background: transparent;
@@ -12,7 +12,7 @@ export const StyledInput = styled.input<TextInputStylesType>`
   border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.colors.gray[100]};
   outline: none;
-  transition: border-color .3s ease-in;
+  transition: border-color 0.3s ease-in;
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.gray[300]};
@@ -22,7 +22,9 @@ export const StyledInput = styled.input<TextInputStylesType>`
     border-color: ${({ theme }) => theme.colors.gray[500]};
   }
 
-  ${({ hasError }) => hasError && css`
-    border-color: ${({ theme }) => theme.colors.primary[500]};
-  `}
+  ${({ hasError }) =>
+    hasError &&
+    css`
+      border-color: ${({ theme }) => theme.colors.primary[500]};
+    `}
 `;

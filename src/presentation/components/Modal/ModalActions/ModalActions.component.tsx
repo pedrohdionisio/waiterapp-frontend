@@ -1,10 +1,7 @@
-import { Wrapper } from './ModalActions.styles';
-import { IModalActionsProps } from './ModalActions.types';
+import { type IModalActionsProps } from './ModalActions.types';
 
-export function ModalActions({ children }: IModalActionsProps) {
-  return (
-    <Wrapper>
-      {children}
-    </Wrapper>
-  );
+import { Wrapper } from './ModalActions.styles';
+
+export function ModalActions({ children }: IModalActionsProps): JSX.Element {
+  return <Wrapper>{children}</Wrapper>;
 }

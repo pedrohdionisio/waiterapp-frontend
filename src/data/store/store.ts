@@ -4,8 +4,8 @@ import authReducer from './slices/Auth/Auth.slice';
 
 const store = configureStore({
   reducer: {
-    auth: authReducer,
-  },
+    auth: authReducer
+  }
 });
 
 export type RootStateType = ReturnType<typeof store.getState>;

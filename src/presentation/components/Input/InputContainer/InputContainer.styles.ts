@@ -15,7 +15,7 @@ export const ErrorMessage = styled.span`
   align-items: center;
   gap: 8px;
   color: ${({ theme }) => theme.colors.primary[500]};
-  
+
   img {
     color: red;
   }

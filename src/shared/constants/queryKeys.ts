@@ -2,9 +2,9 @@ export const queryKeys = {
   orders: {
     load: 'loadOrders',
     cancel: 'cancelOrders',
-    changeStatus: 'changeOrderStatus',
+    changeStatus: 'changeOrderStatus'
   },
   user: {
-    load: 'loadUser',
-  },
+    load: 'loadUser'
+  }
 };

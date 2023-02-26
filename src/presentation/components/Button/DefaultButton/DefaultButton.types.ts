@@ -1,6 +1,7 @@
-import { ButtonHTMLAttributes } from 'react';
+import { type ButtonHTMLAttributes } from 'react';
 
-export interface IDefaultButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IDefaultButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
   secondary?: boolean;
   isLoading?: boolean;

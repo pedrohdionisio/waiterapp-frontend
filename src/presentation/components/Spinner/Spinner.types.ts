@@ -3,4 +3,4 @@ export interface ISpinnerProps {
   color?: string;
 }
 
-export type SpinnerStylesType = Pick<ISpinnerProps, 'size' | 'color'>
+export type SpinnerStylesType = Pick<ISpinnerProps, 'size' | 'color'>;

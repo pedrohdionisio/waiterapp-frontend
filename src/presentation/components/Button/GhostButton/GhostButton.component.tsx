@@ -1,9 +1,14 @@
-import Spinner from 'presentation/components/Spinner/Spinner.component';
+import { Spinner } from 'presentation/components/Spinner';
+
+import { type IGhostButtonProps } from './GhostButton.types';
 
 import { StyledButton } from './GhostButton.styles';
-import { IGhostButtonProps } from './GhostButton.types';
 
-export function GhostButton({ isLoading, text, ...rest }: IGhostButtonProps) {
+export function GhostButton({
+  isLoading,
+  text,
+  ...rest
+}: IGhostButtonProps): JSX.Element {
   return (
     <StyledButton {...rest}>
       {isLoading && <Spinner size={10} />}

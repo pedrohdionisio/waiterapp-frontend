@@ -1,15 +1,14 @@
-import Currency from 'shared/utils/currency';
-
-import { useShowOrder } from 'data/features/orders/show-order/useShowOrder';
 import { useCancelOrder } from 'data/features/orders/cancel-order/useCancelOrder';
 import { useChangeOrderStatus } from 'data/features/orders/change-order-status/useChangeOrderStatus';
+import { useShowOrder } from 'data/features/orders/show-order/useShowOrder';
 
-import { ModalContainer } from 'presentation/components/Modal/ModalContainer/ModalContainer.component';
-import { ModalActions } from 'presentation/components/Modal/ModalActions/ModalActions.component';
-import { GhostButton } from 'presentation/components/Button/GhostButton/GhostButton.component';
-import { DefaultButton } from 'presentation/components/Button/DefaultButton/DefaultButton.component';
+import { DefaultButton, GhostButton } from 'presentation/components/Button';
+import { ModalActions, ModalContainer } from 'presentation/components/Modal';
 
-import { IManageOrder } from './ManageOrderModal.types';
+import Currency from 'shared/utils/currency';
+
+import { type IManageOrder } from './ManageOrderModal.types';
+
 import {
   ModalBody,
   OrderProducts,
@@ -17,23 +16,23 @@ import {
   Product,
   ProductInfo,
   ProductsList,
-  TotalPrice,
+  TotalPrice
 } from './ManageOrderModal.styles';
 
-export function ManageOrderModal({ order, visible, onClose }: IManageOrder) {
+export function ManageOrderModal({
+  order,
+  visible,
+  onClose
+}: IManageOrder): JSX.Element | null {
   const { totalPrice } = useShowOrder(order);
   const { handleCancelOrder, isCancelOrderLoading } = useCancelOrder(
     order?._id,
     order?.table,
-    onClose,
+    onClose
   );
 
-  const { handleChangeOrderStatus, isChangeStatusLoading } = useChangeOrderStatus(
-    order?._id,
-    order?.table,
-    order?.status,
-    onClose,
-  );
+  const { handleChangeOrderStatus, isChangeStatusLoading } =
+    useChangeOrderStatus(order?._id, order?.table, order?.status, onClose);
 
   if (!order) {
     return null;
@@ -67,10 +66,7 @@ export function ManageOrderModal({ order, visible, onClose }: IManageOrder) {
                 />
 
                 <ProductInfo>
-                  <span>
-                    {quantity}
-                    x
-                  </span>
+                  <span>{quantity}x</span>
 
                   <div>
                     <h4>{product.name}</h4>
@@ -89,23 +85,23 @@ export function ManageOrderModal({ order, visible, onClose }: IManageOrder) {
       </ModalBody>
 
       {order.status !== 'DONE' && (
-      <ModalActions>
-        <GhostButton
-          text="Cancelar pedido"
-          onClick={handleCancelOrder}
-          disabled={isChangeStatusLoading || isCancelOrderLoading}
-        />
+        <ModalActions>
+          <GhostButton
+            text='Cancelar pedido'
+            onClick={handleCancelOrder}
+            disabled={isChangeStatusLoading || isCancelOrderLoading}
+          />
 
-        <DefaultButton
-          onClick={handleChangeOrderStatus}
-          text={
+          <DefaultButton
+            onClick={handleChangeOrderStatus}
+            text={
               order.status === 'WAITING'
                 ? 'Mover para produção'
                 : 'Concluir pedido'
             }
-          isLoading={isChangeStatusLoading || isCancelOrderLoading}
-        />
-      </ModalActions>
+            isLoading={isChangeStatusLoading || isCancelOrderLoading}
+          />
+        </ModalActions>
       )}
     </ModalContainer>
   );

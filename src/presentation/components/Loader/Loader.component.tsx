@@ -1,17 +1,19 @@
-import ReactPortal from '../ReactPortal/ReactPortal.component';
-import Spinner from '../Spinner/Spinner.component';
+import { ReactPortal } from '../ReactPortal';
+import { Spinner } from '../Spinner';
+
+import { type ILoaderProps } from './Loader.types';
+
 import { Overlay } from './Loader.styles';
-import { ILoaderProps } from './Loader.types';
 
 export function Loader({
-  isLoading = false,
-}: ILoaderProps) {
+  isLoading = false
+}: ILoaderProps): JSX.Element | null {
   if (!isLoading) {
     return null;
   }
 
   return (
-    <ReactPortal containerId="loader-root">
+    <ReactPortal containerId='loader-root'>
       <Overlay>
         <Spinner size={90} />
       </Overlay>

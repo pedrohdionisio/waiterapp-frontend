@@ -1,11 +1,14 @@
-import { InputHTMLAttributes } from 'react';
-import { Control } from 'react-hook-form';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { type InputHTMLAttributes } from 'react';
 
-export interface IPasswordInputProps extends InputHTMLAttributes<HTMLInputElement> {
+import { type Control } from 'react-hook-form';
+
+export interface IPasswordInputProps
+  extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   control?: Control<any, any>;
   hasError?: boolean;
   defaultValue?: string;
 }
 
-export type PasswordInputStylesType = Pick<IPasswordInputProps, 'hasError'>
+export type PasswordInputStylesType = Pick<IPasswordInputProps, 'hasError'>;

@@ -1,17 +1,19 @@
 import { useState } from 'react';
 
-import { OrderType } from 'shared/types/Order';
+import { type OrderType } from 'shared/types/Order';
 
-export function useOrdersBoard() {
+import { type IUseOrdersBoard } from './OrdersBoard.types';
+
+export function useOrdersBoard(): IUseOrdersBoard {
   const [selectedOrder, setSelectedOrder] = useState<OrderType | null>(null);
   const [isOrderModalVisible, setIsOrderModalVisible] = useState(false);
 
-  function handleOpenModal(order: OrderType) {
+  function handleOpenModal(order: OrderType): void {
     setSelectedOrder(order);
     setIsOrderModalVisible(true);
   }
 
-  function handleCloseModal() {
+  function handleCloseModal(): void {
     setSelectedOrder(null);
     setIsOrderModalVisible(false);
   }
@@ -20,6 +22,6 @@ export function useOrdersBoard() {
     selectedOrder,
     isOrderModalVisible,
     handleCloseModal,
-    handleOpenModal,
+    handleOpenModal
   };
 }

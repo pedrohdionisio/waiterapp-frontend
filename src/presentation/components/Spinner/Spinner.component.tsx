@@ -1,6 +1,12 @@
 import { StyledSpinner } from './Spinner.styles.ts';
-import { ISpinnerProps } from './Spinner.types';
 
-export default function Spinner({ color, size = 32 }: ISpinnerProps) {
-  return <StyledSpinner size={size} color={color} />;
+import { type ISpinnerProps } from './Spinner.types';
+
+export function Spinner({ color, size = 32 }: ISpinnerProps): JSX.Element {
+  return (
+    <StyledSpinner
+      size={size}
+      color={color}
+    />
+  );
 }

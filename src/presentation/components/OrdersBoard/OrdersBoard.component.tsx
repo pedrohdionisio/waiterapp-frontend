@@ -1,23 +1,19 @@
 /* eslint-disable no-underscore-dangle */
 
-import { ManageOrderModal } from 'presentation/pages/Home/components/ManageOrderModal/ManageOrderModal.component';
+import { ManageOrderModal } from 'presentation/pages/Home/components/ManageOrderModal';
 
-import { IOrdersBoardProps } from './OrdersBoard.types';
 import { useOrdersBoard } from './useOrdersBoard';
 
-import {
-  Board,
-  BoardCard,
-  BoardHeader,
-  Wrapper,
-} from './OrdersBoard.styles';
+import { type IOrdersBoardProps } from './OrdersBoard.types';
 
-export function OrdersBoard({ orders, title }: IOrdersBoardProps) {
+import { Board, BoardCard, BoardHeader, Wrapper } from './OrdersBoard.styles';
+
+export function OrdersBoard({ orders, title }: IOrdersBoardProps): JSX.Element {
   const {
     selectedOrder,
     isOrderModalVisible,
     handleCloseModal,
-    handleOpenModal,
+    handleOpenModal
   } = useOrdersBoard();
 
   return (
@@ -28,8 +24,13 @@ export function OrdersBoard({ orders, title }: IOrdersBoardProps) {
           <span>{orders?.length}</span>
         </BoardHeader>
 
-        {orders?.map((order) => (
-          <BoardCard key={order._id} onClick={() => handleOpenModal(order)}>
+        {orders?.map(order => (
+          <BoardCard
+            key={order._id}
+            onClick={() => {
+              handleOpenModal(order);
+            }}
+          >
             <strong>{`Mesa ${order.table}`}</strong>
             <span>
               {`${order.products.length} ${

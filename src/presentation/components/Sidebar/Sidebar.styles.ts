@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 
 export const ShortLogo = styled.span`
   font-size: 32px;
-  
+
   strong {
     color: ${({ theme }) => theme.colors.gray[500]};
   }

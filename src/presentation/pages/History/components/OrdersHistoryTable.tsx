@@ -1,5 +1,3 @@
-export function OrdersHistoryTable() {
-  return (
-    <h1>History here</h1>
-  );
+export function OrdersHistoryTable(): JSX.Element {
+  return <h1>History here</h1>;
 }

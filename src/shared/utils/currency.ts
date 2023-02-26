@@ -1,12 +1,12 @@
 class Currency {
-  format(value?: number, country = 'pt-br', currency = 'BRL') {
+  format(value?: number, country = 'pt-br', currency = 'BRL'): string {
     if (!value) {
-      return null;
+      return '';
     }
 
     const price = new Intl.NumberFormat(country, {
       style: 'currency',
-      currency,
+      currency
     }).format(value);
 
     return price;

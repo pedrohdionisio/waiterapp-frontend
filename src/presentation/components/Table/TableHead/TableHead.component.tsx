@@ -1,10 +1,7 @@
-import { Wrapper } from './TableHead.styles';
-import { ITableHeadProps } from './TableHead.types';
+import { type ITableHeadProps } from './TableHead.types';
 
-export function TableHead({ children }: ITableHeadProps) {
-  return (
-    <Wrapper>
-      {children}
-    </Wrapper>
-  );
+import { Wrapper } from './TableHead.styles';
+
+export function TableHead({ children }: ITableHeadProps): JSX.Element {
+  return <Wrapper>{children}</Wrapper>;
 }

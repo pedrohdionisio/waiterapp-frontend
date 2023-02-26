@@ -1,11 +1,13 @@
-import { SyntheticEvent, useState } from 'react';
+import { type SyntheticEvent, useState } from 'react';
+
 import { Controller } from 'react-hook-form';
 
 import eye from 'shared/assets/images/eye.svg';
 import eyeHidden from 'shared/assets/images/eye-hidden.svg';
 
+import { type IPasswordInputProps } from './PasswordInput.types';
+
 import { InputButton, StyledInput, Wrapper } from './PasswordInput.styles';
-import { IPasswordInputProps } from './PasswordInput.types';
 
 export function PasswordInput({
   control,
@@ -13,10 +15,10 @@ export function PasswordInput({
   defaultValue = '',
   hasError = false,
   ...rest
-}: IPasswordInputProps) {
+}: IPasswordInputProps): JSX.Element {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-  function handlePasswordVisibilityChange(e: SyntheticEvent) {
+  function handlePasswordVisibilityChange(e: SyntheticEvent): void {
     e.preventDefault();
     setIsPasswordVisible(!isPasswordVisible);
   }

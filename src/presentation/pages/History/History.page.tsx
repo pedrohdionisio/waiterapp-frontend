@@ -1,7 +1,5 @@
-import { OrdersHistoryTable } from './components/OrdersHistoryTable';
+import { OrdersHistoryTable } from './components';
 
-export function History() {
-  return (
-    <OrdersHistoryTable />
-  );
+export function History(): JSX.Element {
+  return <OrdersHistoryTable />;
 }

@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components';
-import { SpinnerStylesType } from './Spinner.types';
+
+import { type SpinnerStylesType } from './Spinner.types';
 
 const load = keyframes`
   0% {
@@ -36,7 +37,7 @@ const round = keyframes`
 `;
 
 export const StyledSpinner = styled.div<SpinnerStylesType>`
-  color: ${({ color, theme }) => (color || theme.colors.primary[500])};
+  color: ${({ color, theme }) => color ?? theme.colors.primary[500]};
   font-size: ${({ size }) => `${size}px`};
   width: 1em;
   height: 1em;

@@ -7,7 +7,7 @@ export const StyledButton = styled.button`
   border: 2px solid ${({ theme }) => theme.colors.primary[500]};
   border-radius: 44px;
   padding: 8px 16px;
-  transition: all .3s ease-in;
+  transition: all 0.3s ease-in;
 
   &:hover {
     opacity: 0.7;

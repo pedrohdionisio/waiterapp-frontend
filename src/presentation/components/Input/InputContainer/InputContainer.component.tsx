@@ -1,13 +1,14 @@
 import info from 'shared/assets/images/info.svg';
 
+import { type IInputContainerProps } from './InputContainer.types';
+
 import { ErrorMessage, Label, Wrapper } from './InputContainer.styles';
-import { IInputContainerProps } from './InputContainer.types';
 
 export function InputContainer({
   label,
   error,
-  children,
-}: IInputContainerProps) {
+  children
+}: IInputContainerProps): JSX.Element {
   return (
     <Wrapper>
       <Label>{label}</Label>
@@ -16,7 +17,10 @@ export function InputContainer({
 
       {error && (
         <ErrorMessage>
-          <img src={info} alt="Error" />
+          <img
+            src={info}
+            alt='Error'
+          />
           {error}
         </ErrorMessage>
       )}

@@ -1,13 +1,13 @@
 import { useLocation } from 'react-router-dom';
 
-import { Icon } from 'presentation/components/Icon/Icon.component';
-import { RestartDayButton } from 'presentation/pages/Home/components/RestartDayButton/RestartDayButton.component';
+import { Icon } from 'presentation/components/Icon';
+import { RestartDayButton } from 'presentation/pages/Home/components/RestartDayButton';
 
 import { headerTexts } from 'shared/constants/headerTexts';
 
 import { Info, Wrapper } from './Header.styles';
 
-export function Header() {
+export function Header(): JSX.Element {
   const location = useLocation();
 
   const [, , route] = location.pathname.split('/');
@@ -16,7 +16,11 @@ export function Header() {
     <Wrapper>
       <Info>
         <div>
-          <Icon name={headerTexts[route].icon} color="#333333" size="32" />
+          <Icon
+            name={headerTexts[route].icon}
+            color='#333333'
+            size='32'
+          />
           <h1>{headerTexts[route].title}</h1>
         </div>
 

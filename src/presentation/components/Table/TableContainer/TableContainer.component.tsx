@@ -1,10 +1,9 @@
-import { Wrapper } from './TableContainer.styles';
-import { ITableContainerProps } from './TableContainer.types';
+import { type ITableContainerProps } from './TableContainer.types';
 
-export function TableContainer({ children }: ITableContainerProps) {
-  return (
-    <Wrapper>
-      {children}
-    </Wrapper>
-  );
+import { Wrapper } from './TableContainer.styles';
+
+export function TableContainer({
+  children
+}: ITableContainerProps): JSX.Element {
+  return <Wrapper>{children}</Wrapper>;
 }

@@ -1,27 +1,35 @@
 import { useRestartDay } from 'data/features/orders/restart-day/useRestartDay';
 
-import { DefaultButton } from 'presentation/components/Button/DefaultButton/DefaultButton.component';
-import { GhostButton } from 'presentation/components/Button/GhostButton/GhostButton.component';
-import { Icon } from 'presentation/components/Icon/Icon.component';
-import { ModalActions } from 'presentation/components/Modal/ModalActions/ModalActions.component';
-import { ModalContainer } from 'presentation/components/Modal/ModalContainer/ModalContainer.component';
+import { DefaultButton, GhostButton } from 'presentation/components/Button';
+import { Icon } from 'presentation/components/Icon';
+import { ModalActions, ModalContainer } from 'presentation/components/Modal';
 
 import { ModalBody, Wrapper } from './RestartDayButton.styles';
 
-export function RestartDayButton() {
-  const { theme, isRestartDayModalVisible, setIsRestartDayModalVisible } = useRestartDay();
+export function RestartDayButton(): JSX.Element {
+  const { theme, isRestartDayModalVisible, setIsRestartDayModalVisible } =
+    useRestartDay();
 
   return (
     <>
-      <Wrapper onClick={() => setIsRestartDayModalVisible(true)}>
-        <Icon name="history" color={theme.colors.primary[500]} />
+      <Wrapper
+        onClick={() => {
+          setIsRestartDayModalVisible(true);
+        }}
+      >
+        <Icon
+          name='history'
+          color={theme.colors.primary[500]}
+        />
         <span>Reiniciar o dia</span>
       </Wrapper>
 
       <ModalContainer
         visible={isRestartDayModalVisible}
-        onRequestClose={() => setIsRestartDayModalVisible(false)}
-        title="Reiniciar o dia"
+        onRequestClose={() => {
+          setIsRestartDayModalVisible(false);
+        }}
+        title='Reiniciar o dia'
       >
         <ModalBody>
           <p>
@@ -33,8 +41,8 @@ export function RestartDayButton() {
         </ModalBody>
 
         <ModalActions>
-          <GhostButton text="Não, continuar pedidos" />
-          <DefaultButton text="Sim, reiniciar o dia" />
+          <GhostButton text='Não, continuar pedidos' />
+          <DefaultButton text='Sim, reiniciar o dia' />
         </ModalActions>
       </ModalContainer>
     </>

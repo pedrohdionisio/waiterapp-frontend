@@ -1,7 +1,8 @@
 import { Controller } from 'react-hook-form';
 
+import { type ITextInputProps } from './TextInput.types';
+
 import { StyledInput } from './TextInput.styles';
-import { ITextInputProps } from './TextInput.types';
 
 export function TextInput({
   control,
@@ -9,9 +10,15 @@ export function TextInput({
   defaultValue = '',
   hasError = false,
   ...rest
-}: ITextInputProps) {
+}: ITextInputProps): JSX.Element {
   if (!control) {
-    return <StyledInput name={name} hasError={hasError} {...rest} />;
+    return (
+      <StyledInput
+        name={name}
+        hasError={hasError}
+        {...rest}
+      />
+    );
   }
 
   return (

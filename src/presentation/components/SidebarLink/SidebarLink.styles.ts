@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  button, a {
+  button,
+  a {
     display: flex;
     flex-direction: column;
     align-items: center;
