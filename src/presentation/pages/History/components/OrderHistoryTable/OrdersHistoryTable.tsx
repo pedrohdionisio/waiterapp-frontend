@@ -4,6 +4,7 @@ import { useTheme } from 'styled-components';
 
 import { useListOrders } from 'data/features/orders/list-orders/useListOrders';
 
+import { EmptyList } from 'presentation/components/EmptyList/EmptyList.component';
 import { Icon } from 'presentation/components/Icon';
 import { Loader } from 'presentation/components/Loader';
 import { Table } from 'presentation/components/Table';
@@ -56,63 +57,69 @@ export function OrdersHistoryTable(): JSX.Element {
 
   return (
     <>
-      <ArchivedOrderModal
-        order={selectedOrder!}
-        visible={isOrderModalVisible}
-        onClose={() => {
-          setIsOrderModalVisible(false);
-        }}
-      />
+      {archived?.length === 0 ? (
+        <EmptyList text='Você não possui nenhum pedido arquivado no momento' />
+      ) : (
+        <>
+          <ArchivedOrderModal
+            order={selectedOrder!}
+            visible={isOrderModalVisible}
+            onClose={() => {
+              setIsOrderModalVisible(false);
+            }}
+          />
 
-      <TableTitle
-        title='Pedidos'
-        quantity={archived?.length}
-      />
+          <TableTitle
+            title='Pedidos'
+            quantity={archived?.length}
+          />
 
-      <Table>
-        <thead>
-          <tr>
-            {columns.map(column => (
-              <th key={column.identifier}>{column.label}</th>
-            ))}
+          <Table>
+            <thead>
+              <tr>
+                {columns.map(column => (
+                  <th key={column.identifier}>{column.label}</th>
+                ))}
 
-            <th>Ações</th>
-          </tr>
-        </thead>
+                <th>Ações</th>
+              </tr>
+            </thead>
 
-        <tbody>
-          {archived?.map(item => (
-            <tr key={item._id}>
-              <td>{item.table}</td>
-              <td>{Datetime.format(item.created_at)}</td>
-              <td>{item.client_name}</td>
-              <td>
-                {Currency.format(
-                  item.products.reduce(
-                    (total, { product, quantity }) =>
-                      (total += product.price * quantity),
-                    0
-                  )
-                )}
-              </td>
+            <tbody>
+              {archived?.map(item => (
+                <tr key={item._id}>
+                  <td>{item.table}</td>
+                  <td>{Datetime.format(item.created_at)}</td>
+                  <td>{item.client_name}</td>
+                  <td>
+                    {Currency.format(
+                      item.products.reduce(
+                        (total, { product, quantity }) =>
+                          (total += product.price * quantity),
+                        0
+                      )
+                    )}
+                  </td>
 
-              <td className='actions'>
-                <button
-                  type='button'
-                  onClick={() => {
-                    handleExcludeOrderRegister(item);
-                  }}
-                >
-                  <Icon
-                    name='delete-bin'
-                    color={theme.colors.primary[500]}
-                  />
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+                  <td className='actions'>
+                    <button
+                      type='button'
+                      onClick={() => {
+                        handleExcludeOrderRegister(item);
+                      }}
+                    >
+                      <Icon
+                        name='delete-bin'
+                        color={theme.colors.primary[500]}
+                      />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </>
+      )}
     </>
   );
 }
