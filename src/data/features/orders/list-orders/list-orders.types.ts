@@ -6,4 +6,5 @@ export interface IUseListOrders {
   inProduction: OrderType[] | undefined;
   done: OrderType[] | undefined;
   isError: boolean;
+  archived: OrderType[] | undefined;
 }

@@ -7,6 +7,7 @@ const ordersMock: OrderType[] = [
     status: 'WAITING',
     client_name: 'Pedro Henrique',
     created_at: new Date(),
+    is_archived: false,
     products: [
       {
         product: {
@@ -34,6 +35,7 @@ const ordersMock: OrderType[] = [
     status: 'WAITING',
     client_name: 'Lucas',
     created_at: new Date(),
+    is_archived: false,
     products: [
       {
         product: {
@@ -61,6 +63,7 @@ const ordersMock: OrderType[] = [
     status: 'WAITING',
     client_name: 'Maria',
     created_at: new Date(),
+    is_archived: false,
     products: [
       {
         product: {

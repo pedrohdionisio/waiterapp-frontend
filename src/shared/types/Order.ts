@@ -7,7 +7,8 @@ export type OrderType = {
   client_name: string;
   table: string;
   status: OrderStatusType;
-  created_at: Date;
+  created_at: string;
+  is_archived: boolean;
   products: {
     _id: string;
     product: ProductType;

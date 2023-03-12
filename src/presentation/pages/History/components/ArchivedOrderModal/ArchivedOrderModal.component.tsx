@@ -1,38 +1,35 @@
 import { useCancelOrder } from 'data/features/orders/cancel-order/useCancelOrder';
-import { useChangeOrderStatus } from 'data/features/orders/change-order-status/useChangeOrderStatus';
 import { useShowOrder } from 'data/features/orders/show-order/useShowOrder';
 
-import { DefaultButton, GhostButton } from 'presentation/components/Button';
+import { GhostButton } from 'presentation/components/Button';
 import { ModalActions, ModalContainer } from 'presentation/components/Modal';
 
 import Currency from 'shared/utils/currency';
+import Datetime from 'shared/utils/date';
 
-import { type IManageOrderModalProps } from './ManageOrderModal.types';
+import { type IArchivedOrderModalProps } from './ArchivedOrderModal.types';
 
 import {
   ModalBody,
+  OrderInfo,
   OrderProducts,
-  OrderStatus,
   Product,
   ProductInfo,
   ProductsList,
   TotalPrice
-} from './ManageOrderModal.styles';
+} from './ArchivedOrderModal.styles';
 
-export function ManageOrderModal({
+export function ArchivedOrderModal({
   order,
   visible,
   onClose
-}: IManageOrderModalProps): JSX.Element | null {
+}: IArchivedOrderModalProps): JSX.Element | null {
   const { totalPrice } = useShowOrder(order);
   const { handleCancelOrder, isCancelOrderLoading } = useCancelOrder(
     order?._id,
     order?.table,
     onClose
   );
-
-  const { handleChangeOrderStatus, isChangeStatusLoading } =
-    useChangeOrderStatus(order?._id, order?.table, order?.status, onClose);
 
   if (!order) {
     return null;
@@ -45,14 +42,17 @@ export function ManageOrderModal({
       onRequestClose={onClose}
     >
       <ModalBody>
-        <OrderStatus>
-          <p>Status do Pedido</p>
-          <strong>
-            {order.status === 'WAITING' && 'Em espera'}
-            {order.status === 'IN_PRODUCTION' && 'Em preparação'}
-            {order.status === 'DONE' && 'Pronto'}
-          </strong>
-        </OrderStatus>
+        <OrderInfo>
+          <div>
+            <p>Nome do cliente</p>
+            <strong>{order.client_name}</strong>
+          </div>
+
+          <div>
+            <p>Data do pedido</p>
+            <strong>{Datetime.format(order.created_at)}</strong>
+          </div>
+        </OrderInfo>
 
         <OrderProducts>
           <p>Itens</p>
@@ -84,25 +84,13 @@ export function ManageOrderModal({
         </OrderProducts>
       </ModalBody>
 
-      {order.status !== 'DONE' && (
-        <ModalActions>
-          <GhostButton
-            text='Cancelar pedido'
-            onClick={handleCancelOrder}
-            disabled={isChangeStatusLoading || isCancelOrderLoading}
-          />
-
-          <DefaultButton
-            onClick={handleChangeOrderStatus}
-            text={
-              order.status === 'WAITING'
-                ? 'Mover para produção'
-                : 'Concluir pedido'
-            }
-            isLoading={isChangeStatusLoading || isCancelOrderLoading}
-          />
-        </ModalActions>
-      )}
+      <ModalActions>
+        <GhostButton
+          text='Excluir Registro'
+          onClick={handleCancelOrder}
+          disabled={isCancelOrderLoading}
+        />
+      </ModalActions>
     </ModalContainer>
   );
 }

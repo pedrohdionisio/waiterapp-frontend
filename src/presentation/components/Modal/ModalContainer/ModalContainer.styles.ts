@@ -10,7 +10,7 @@ export const ModalHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 56px;
+  margin-bottom: 40px;
 
   button {
     display: flex;

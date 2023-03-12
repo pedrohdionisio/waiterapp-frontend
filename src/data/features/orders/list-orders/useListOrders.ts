@@ -24,16 +24,22 @@ export function useListOrders(): IUseListOrders {
     }
   );
 
-  const waiting = orders?.filter(order => order.status === 'WAITING');
-  const inProduction = orders?.filter(
-    order => order.status === 'IN_PRODUCTION'
+  const waiting = orders?.filter(
+    order => order.status === 'WAITING' && !order.is_archived
   );
-  const done = orders?.filter(order => order.status === 'DONE');
+  const inProduction = orders?.filter(
+    order => order.status === 'IN_PRODUCTION' && !order.is_archived
+  );
+  const done = orders?.filter(
+    order => order.status === 'DONE' && !order.is_archived
+  );
+  const archived = orders?.filter(order => order.is_archived && order.status);
 
   return {
     isLoading: isLoading || isFetching,
     waiting,
     inProduction,
+    archived,
     done,
     isError
   };

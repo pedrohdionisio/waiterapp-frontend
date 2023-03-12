@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const ModalBody = styled.div``;
 
-export const OrderStatus = styled.div`
+export const OrderInfo = styled.div`
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 32px;
 
   p {
